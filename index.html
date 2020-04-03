@@ -9,16 +9,16 @@
         specStatus: "ED",
         editors: [{
           name: "Florian Rivoal",
-	  company: "Invited Expert",
+	      company: "Invited Expert",
           url: "https://florian.rivoal.net",
-	  w3cid: "43241",
+	      w3cid: "43241",
         }],
         authors: [{
             name: "Toshi Kobayashi",
           }],
-        github: "w3c/jlreq",
-	edDraftURI: "https://w3c.github.io/jlreq/docs/simple-ruby/",
-        prevED: "https://florian.rivoal.net/ruby/",
+        github: "w3c/simple-ruby",
+	    edDraftURI: "https://w3c.github.io/simple-ruby/",
+        prevED: "https://w3c.github.io/jlreq/docs/simple-ruby/",
         shortName: "simple-ruby",
         alternateFormats: [{
             uri: "ruby-rules-ja.pdf",
@@ -44,10 +44,10 @@
     </style>
   </head>
 <body>
-<section id='abstract'>
+<section id="abstract">
   <p>A simple set of rules for placement of Ruby text in Japanese typography.</p>
 </section>
-<section id='sotd'>
+<section id="sotd">
   <p>
   This document was initially written in Japanese
   and translated to English
@@ -392,7 +392,7 @@ it is explained last.</p>
   <figure id=line-start-mono>
       <img src="img/fig7.svg" />
       <figcaption>Example of mono-ruby at the line start</figcaption>
-    </figure>
+  </figure>
     <figure id=line-end-mono>
       <img src="img/fig8.svg" />
       <figcaption>Example of mono-ruby at the line end</figcaption>
@@ -470,10 +470,10 @@ it is explained last.</p>
         The size of the space inserted between each of the base characters
         is twice the size of the space inserted at the end and at the start
         (see <a href="#group-4"></a>).
-          <figure id=group-4>
+      <figure id=group-4>
           <img src="img/fig12.svg" />
           <figcaption>Example 4 of group-ruby</figcaption>
-        </figure>
+      </figure>
         
       </li>
     </ul>
@@ -640,94 +640,6 @@ it is explained last.</p>
     Also, when the ruby string is longer than the base character string,
     protrudes, and is located at the start or end of the line,
     the resulting layout is also identical to that of mono-ruby.</li>
-</ol>
-</section>
-</section>
-
-<section>
-<h2 id="ruby-and-accessibility">Ruby and Accessibility</h2>
-
-<section>
-<h3 id="accessibility-improvements-using-ruby">Accessibility Improvements Using Ruby</h3>
-
-<p>Ruby plays a role in improving accessibility for people with visual impairments,
-and other sources of reading difficulties.
-Therefore, this section examines the relationship between ruby and accessibility.</p>
-
-<p>Reading difficulties can be caused by a variety of factors,
-and therefore, requirements to improve accessibility also vary.
-For example, here are some common requirements:</p>
-
-<ul>
-  <li>
-    <p>To accommodate young children who cannot read any kanji,
-    general-ruby must be added to all kanji.</p>
-    <aside class=note title="General-Ruby and Para-Ruby">
-      See <a href="https://www.w3.org/TR/jlreq/#choice_of_base_characters_to_be_annotated_by_ruby">JLReq section “3.2.2 Choice of Base Characters to be Annotated by Ruby”</a> for an explanation of “general-ruby” and “para-ruby”. [[JLREQ]]
-    </aside>
-  </li>
-  <li>
-    <p>As studies progress, a greater number of kanji is known.
-    After having read general-ruby many times,
-    ruby on difficult kanji only becomes sufficient.
-    Therefore para-ruby on only some of the kanji is required.</p>
-    <aside class=note title="The Need for Ruby">
-      According to the results of the 2017 DAISY survey towards general users of textbooks,
-      61% of children require general-ruby.
-      Based on the same survey,
-      para-ruby is found to be sufficient for 32% of children.
-      This means that after having read general-ruby multiple times,
-      having ruby on difficult kanji only is found sufficient.
-      Moreover, printed textbooks use para-ruby,
-      and faithful digital reproduction is needed.
-    </aside>
-    <aside class=note title="Kanji Studied by Elementary and Middle School Students">
-      Kanji to be learned during primary school are defined in
-      the “Primary School Learning Guidelines”.
-      Those kanji are often called “educational kanji”.
-      In the list published in 2017,
-      1026 kanji are listed and spread across the various school years
-      according to the “Kanji Allotment Table by Grade”.
-      For middle school,
-      the split between each grade is undefined,
-      but students are required to study
-      the 1110 “characters in common use” no included in educational kanji
-      so as to have studied all 2136 characters in common use
-      by the end of middle school.
-    </aside>
-  </li>
-  <li>Some people have difficulties in visually distinguishing between
-    ruby characters and the base characters to which they are attached,
-    and misread the combination as a different character altogether.
-    There must be a display method that enables clearly distinguishing between the two.
-    Also, for those who already know how to read the kanji,
-    there must be a way to hide the ruby.</li>
-  <li>As inline parenthesised annotations can be used instead,
-    there is no strong need for double-sided ruby.</li>
-</ul>
-</section>
-
-<section>
-<h3 id="ruby-display-requirements-for-accessibility">Ruby Display Requirements for Accessibility</h3>
-
-<p>Based on the above,
-we can gather the following
-ruby display requirements for accessibility:</p>
-
-<ol>
-  <li>Support for general-ruby is required.</li>
-  <li>Support for para-ruby is required.
-    Moreover, as the number of kanji known increases with the level of studies,
-    based on the content and on the level of the reader,
-    it must be possible to only display ruby for kanji
-    assigned to a particular school year (or later).</li>
-  <li>Support for hiding ruby is required.</li>
-  <li>Considering the cost of production, distribution, and of user management,
-    it is necessary to support ruby-less display, general-ruby display, and para-ruby display
-    with the same content.</li>
-  <li>A method to clearly visually distinguish the ruby characters and their based characters,
-    such as displaying them in different colors,
-    is required.</li>
 </ol>
 </section>
 </section>
