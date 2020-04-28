@@ -111,6 +111,22 @@ but sometimes to provide other information.
 by the internationalization Working Group
 for more information.)
 
+    <aside class=note title="Ruby as notes">
+      Notes are sometimes placed between lines
+      similarly to how ruby is laid out
+      (inter-linear notes).
+      The processing of this arrangement is not covered in this document.
+      <span class="translateme">モノルビでは，そこに付くルビ
+      文字列の 2 行にわたる分割（以下，分割
+      という）は認められていない．さらに，グ
+      ループルビでは親文字列の分割も認められ
+      ていない．これに対し，行間注では，分量
+      が多くなるケースも予想され，親文字列又
+      は行間注の文字列は，分割可能位置での分
+      割を認める必要があり，異なる配置処理が
+      必要になるからである．</span>
+    </aside>
+
 <section>
 <h3 id="the-difficulties-of-ruby-processing">The Difficulties of Ruby Processing</h3>
 
@@ -127,19 +143,40 @@ in order to decide on the position:</p>
     whether it can be allowed to be laid over the characters preceding or following,
     and whether this affects the position of the base characters</p>
     <aside class=note title="Protrusion of ruby from base characters">
-      In movable type typesetting,
-      ruby characters protruding from their base characters
-      may not hang over neighboring kanji,
-      but often were allowed to hang over neighboring kana.
-      However, when the ruby is katakana,
-      some publishers would set it so that
-      it would not hang over the kana neighboring the base character.
-      Also, when the characters around the base characters
-      were kanji on one side and kana on the other side,
-      for the sake of balance
-      the ruby would sometimes be set so as to hang
-      neither over the kanji nor over the kana
-      (which would therefore both be spaced away from the base character).
+      <span class="translateme">
+        できるだけ
+        字間を空けないということから，親文字か
+        らはみ出したルビを漢字には掛けないが，
+        仮名には掛ける，とした場合，前後が仮名
+        の場合はよいとしても，親文字の前が仮名
+        で，後ろが漢字といったときに，ルビ文字
+        の字数によっては見た目のバランスを壊す
+        場合も出てくる（モノルビの例を図 1 に
+        示す，上側が漢字には掛けないが，仮名に
+        掛けるとした方針で処理した例）．グルー
+        プルビでも，同様である（図 2 参照）．こ
+        うした場合，活字組版では個別箇所のケー
+        スに応じて配置位置を工夫していた．
+        また，ルビ文字が片仮名の場合は，単語
+        としてのまとまりがあり，前後の仮名にも
+        掛けないという考え方をする出版社もあっ
+        た．この場合も，ルビの字数によっては，
+        仮名にも掛けないとした方が見た目のバラ
+        ンスはよいであろう（図 3 参照，下側が
+        仮名に掛けないとした方針で処理した例）．
+      </span>
+      <figure id=ruby-protruding-mono>
+        <img src="img/fig01.svg" />
+        <figcaption>Mono-ruby with ruby characters protruding from their base characters (kanji as next character)</figcaption>
+      </figure>
+      <figure id=ruby-protruding-group>
+        <img src="img/fig02.svg" />
+        <figcaption>Group-ruby with ruby characters protruding from their base characters (kanji as next character)</figcaption>
+      </figure>
+      <figure id=ruby-protruding-group-kana>
+        <img src="img/fig03.svg" />
+        <figcaption>Group-ruby with ruby characters protruding from their base characters (kana as before and next character)</figcaption>
+      </figure>
     </aside>
   </li>
   <li>When the ruby string protrudes from the base character string,
@@ -148,13 +185,6 @@ in order to decide on the position:</p>
   <li>
     <p>When there are multiple base characters,
     whether there can be line wrap opportunity between them</p>
-    <aside class=note title="Wrap opportunities">
-      In computer-based typesetting,
-      rather than always suppressing line wrap opportunities,
-      they would be allowed in cases like compound words.
-      This is because it may otherwise triggers very large
-      spacing adjustments during justification.
-    </aside>
   </li>
 </ol>
 
@@ -192,11 +222,11 @@ the system to be designed needs to be very complex.</p>
     <span class="translateme">具体的には，親文字列からはみ
     出したルビ文字は，前後に配置する漢字だけでなく，仮名にも掛
     けない方式とした．</span>
-    <aside class=note title="Ruby as notes">
-      Notes are sometimes placed between lines
-      similarly to how ruby is laid out
-      (inter-linear notes).
-      The processing of this arrangement is not covered in this document.
+
+    <aside class=note title="Protruding over surrounding characters">
+      The main placement method defined in JIS X 4051 [[JIS4051]]
+      allows some amount of overhang over the preceding and following base characters,
+      but recognizes the method defined here as an allowed variant.
     </aside>
   </li>
   <li>The method is agnostic to horizontal vs vertical writing,
@@ -234,6 +264,15 @@ the system to be designed needs to be very complex.</p>
   方法とした．</span>
     </li>
 </ol>
+
+    <aside class=note title="Wrap opportunities">
+      In computer-based typesetting,
+      rather than always suppressing line wrap opportunities,
+      they would be allowed in cases like compound words.
+      This is because it may otherwise triggers very large
+      spacing adjustments during justification.
+    </aside>
+
 </section>
 
 <section>
@@ -349,12 +388,6 @@ it is explained last.</p>
       <figcaption>Example 1 of mono-ruby protruding</figcaption>
     </figure>
 
-    <aside class=note title="Protruding over surrounding characters">
-      The main placement method defined in JIS X 4051 [[JIS4051]]
-      allows some amount of overhang over the preceding and following base characters,
-      but recognizes the method defined here as an allowed variant.
-    </aside>
-
     However, in the following punctuation marks 
     like <a href="https://www.w3.org/TR/jlreq/#cl-06">Full stops (cl-06)</a>
     [[JLREQ]]
@@ -461,6 +494,25 @@ and placed such that their respective centers in the inline direction are aligne
   <img src="img/fig12.svg" />
   <figcaption>Example 1 of group-ruby</figcaption>
 </figure>
+
+<aside class=note title="Inter-letter spacing in group-ruby">
+<span class="translateme">
+グルー
+プルビの場合，ルビ文字の全体と親文字の
+全体とが対応していることが望ましい．し
+かし，字数によって文字列の長さが異な
+る．そこで仮名等の場合，ルビ文字列や親
+文字列の字間や，その前後を空けて対応
+をとる．ここで採用している前後のアキ 1
+に対し，字間を 2 の比率で空ける方法は，
+活字組版の時代でも，見た目のバランスの
+良い方法といわれていた．
+これに対し，欧文用文字等では，全体の
+対応よりは，欧文用文字等のまとまりを重
+視し，字間を空ける処理を採用しないこと
+とした．
+</span>
+</aside>
 
 <p class="translateme">なお，前述の 2 レベルの処理方式でいえば，以下の説明の（1），
 （2）及び（3）項は，第 1 レベル，（4）及び（5）項は，第 2 レベルの
@@ -667,6 +719,45 @@ and placed such that their respective centers in the inline direction are aligne
 文字との関係，行頭・行末の配置処理は，片側にルビが付く場合と同
 じである．
 </p>
+
+<aside class=note title="Space between adjacent lines and dual-ruby">
+<span class="translateme">
+両側にルビを付けた行が
+重なると，行間の設定によっては，隣り同
+士の行のルビが重なるケースが出る．これ
+は避けないといけない．以下のような方法
+が考えられる．
+<ul>
+  <li>あらかじめ隣り同士のルビ文字が
+  重ならないように，文書全体の行間を設定
+  しておく．</li>
+  <li>重なりが発生した該当する行間だ
+  けを広げて，ルビが重ならないようにす
+  る．この場合，重なった前の行のルビと，
+  後ろのルビが重ならないだけでなく，例え
+  ば，その間は本文文字サイズの四分は空け
+  るとする方法も行われていた．</li>
+  <li>該当する行間ではなく，両側にル
+  ビの付いた行そのものを複数の行の領域に
+  配置する．両側にルビの付いた行を，例え
+  ば，2 行分のスペース（2 行取り）とする．</li>
+  <li>重なりが発生した行間だけではな
+  く，該当する段落全体の行間を広げて，ル
+  ビが重ならないようにする．</li>
+</ul>
+なお，活字組版では，ルビが多く付く，
+あるいはルビと共に注の合印などが多く入
+る場合は（1）の方法，ルビが少ない場合
+は（2）又は（3）の方法がとられていた．
+しかし，Web の自動処理を考えると（3）
+の処理でよいであろう．この方法で該当す
+る行に整数行の領域（例えば 2 行取り）
+を割り当てれば，行位置の乱れは，その部
+分だけですみ，段組とした場合などでは，
+隣りの段との行位置がそろう．
+</span>
+</aside>
+
 </section>
 
 <section>
@@ -709,9 +800,17 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 <p class="translateme">
 モノルビとモノルビの組合せでは，ルビ文字列の字間はベタ組と
 し，それぞれのルビ文字列と親文字列とは，字詰め方向の中心をそろ
-えて配置する（図 23 参照）．その他は，前述したモノルビの配置方法
+えて配置する
+(see <a href="#dual-mono"></a>).
+その他は，前述したモノルビの配置方法
 と同じである．
 </p>
+
+<figure id=dual-mono>
+  <img src="img/fig23.svg" />
+  <figcaption>Dual-ruby example with both mono-ruby</figcaption>
+</figure>
+
 </section>
 
 <section>
@@ -720,7 +819,13 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 両側のルビ文字列がともに親文字より短い場合は，前述した“グル
 ープルビの配置方法”により配置する．ルビ文字が同項でいう仮名等
 の場合は，それぞれのルビ文字列の字間とその前後を空けて配置する
-（図 24 参照）．
+(see <a href="#dual-group-1"></a>).
+
+<figure id=dual-group-1>
+  <img src="img/fig24.svg" />
+  <figcaption>Dual-ruby example 1 with both group-ruby</figcaption>
+</figure>
+
 </p>
 <p class="translateme">
 親文字より長いルビ文字列を含む場合は，長い方のルビ文字列の長
@@ -733,13 +838,27 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 <p class="translateme">
 短い方のグループルビのルビ文字列の長さが（字間を空けた）親文
 字列長以上の場合は，ルビ文字列はベタ組とし，ルビ文字列と親文字
-列の字詰め方向の中心をそろえて配置する（図 25 参照）．
+列の字詰め方向の中心をそろえて配置する
+(see <a href="#dual-group-2"></a>).
+
+<figure id=dual-group-2>
+  <img src="img/fig25.svg" />
+  <figcaption>Dual-ruby example 2 with both group-ruby</figcaption>
+</figure>
+
 </p>
 <p class="translateme">
 短い方のグループルビのルビ文字列の長さが（字間を空けた）親文
 字列長未満の場合は，字間を空けた親文字の長さにそろえて，前述の
 “グループルビの配置方法”で配置する．ルビ文字が同項でいう仮名
-等の場合は，ルビ文字列の字間とその前後を空ける（図 26 参照）．
+等の場合は，ルビ文字列の字間とその前後を空ける
+(see <a href="#dual-group-3"></a>).
+
+<figure id=dual-group-3>
+  <img src="img/fig26.svg" />
+  <figcaption>Dual-ruby example 3 with both group-ruby</figcaption>
+</figure>
+
 </p>
 <p class="translateme">
 いずれの場合でも，その他は，前述したグループルビの配置方法と
