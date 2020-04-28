@@ -587,11 +587,11 @@
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="67.037" y1="32.6" x2="67.037" y2="25.6"/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="74.037" y1="32.6" x2="74.037" y2="25.6"/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="81.037" y1="32.6" x2="81.037" y2="25.6"/>
-<g>
-	<text fill="#008CD6" x="0" y="57" font-size="8" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="0" y="190" font-size="28" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
 </g>
-<g>
-	<text fill="#008CD6" x="100%" y="57" font-size="8" text-anchor="end" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="440" y="190" font-size="28" text-anchor="end" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
 </g>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="86.878" y1="49.1" x2="86.878" y2="36.682"/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="84.889,40.126 86.878,36.682 88.867,40.126 "/>
@@ -599,7 +599,7 @@
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="64.889,40.126 66.878,36.682 68.867,40.126 "/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="47.128" y1="49.1" x2="47.128" y2="36.682"/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="45.139,40.126 47.128,36.682 49.117,40.126 "/>
-<g>
-	<text fill="#008CD6" x="50%" y="77" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="lighter">1/2 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="220" y="256" font-size="28" text-anchor="middle" font-family="sans-serif" font-weight="lighter">1/2 size of base</text>
 </g>
 </svg>

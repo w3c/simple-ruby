@@ -331,16 +331,16 @@
 	<line fill="none" stroke="#008CD6" stroke-width="0.25" x1="20.446" y1="17.534" x2="20.446" y2="7.575"/>
 	<polyline fill="none" stroke="#008CD6" stroke-width="0.25" points="22.383,14.18 20.446,17.534 18.51,14.18 	"/>
 </g>
-<g>
-	<text fill="#008CD6" x="0" y="6" font-size="8" font-family="sans-serif" font-weight="lighter">Character frame</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="0" y="28" font-size="24" font-family="sans-serif" font-weight="lighter">Character frame</text>
 </g>
 <g>
 	<line fill="none" stroke="#008CD6" stroke-width="0.25" x1="16.963" y1="98.152" x2="16.963" y2="104.642"/>
 	<polyline fill="none" stroke="#008CD6" stroke-width="0.25" points="15.027,101.506 16.963,98.152 18.9,101.506 	"/>
 </g>
-<g>
-	<text fill="#008CD6" x="0" y="112" font-size="8" font-family="sans-serif" font-weight="lighter">Character frames</text>
-	<text fill="#008CD6" x="0" y="121" font-size="8" font-family="sans-serif" font-weight="lighter">are set flush</text>
-	<text fill="#008CD6" x="0" y="130" font-size="8" font-family="sans-serif" font-weight="lighter">against each other</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="0" y="362" font-size="24" font-family="sans-serif" font-weight="lighter">Character frames</text>
+	<text fill="#008CD6" x="0" y="389" font-size="24" font-family="sans-serif" font-weight="lighter">are set flush</text>
+	<text fill="#008CD6" x="0" y="416" font-size="24" font-family="sans-serif" font-weight="lighter">against each other</text>
 </g>
 </svg>

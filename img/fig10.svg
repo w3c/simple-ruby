@@ -401,7 +401,7 @@
 	<line fill="none" stroke="#008CD6" stroke-width="0.5" x1="42.317" y1="56.688" x2="42.317" y2="42.688"/>
 </g>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" stroke-dasharray="2" x1="0.317" y1="7.575" x2="0.317" y2="57.183"/>
-<g>
-	<text fill="#008CD6" x="0" y="6" font-size="8" font-family="sans-serif" font-weight="lighter">Line start</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="5" y="32" font-size="28" font-family="sans-serif" font-weight="lighter">Line start</text>
 </g>
 </svg>

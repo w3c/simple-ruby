@@ -399,21 +399,21 @@
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="70.961,40.637 70.961,33.637 77.961,33.637 77.961,40.637 "/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="84.961,40.637 84.961,33.637 91.961,33.637 91.961,40.637 "/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="98.961,40.637 98.961,33.637 105.961,33.637 105.961,40.637 "/>
-<g>
-	<text fill="#008CD6" x="113" y="29" font-size="8" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="336" y="97" font-size="28" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
 </g>
-<g>
-	<text fill="#008CD6" x="63" y="29" font-size="8" text-anchor="end" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="250" y="97" font-size="28" text-anchor="end" font-family="sans-serif" font-weight="lighter">1/4 size of base</text>
 </g>
-<g>
-	<text fill="#008CD6" x="50%" y="15" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="lighter">1/2 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="300" y="55" font-size="28" text-anchor="middle" font-family="sans-serif" font-weight="lighter">1/2 size of base</text>
 </g>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="81.127" y1="17.721" x2="81.127" y2="37.054"/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="83.116,33.61 81.127,37.054 79.139,33.61 "/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="95.294" y1="17.721" x2="95.294" y2="37.054"/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="97.283,33.61 95.294,37.054 93.306,33.61 "/>
-<polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="108.96,37.054 108.96,26.721 111.961,26.721 "/>
+<polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="108.96,37.054 108.96,30.721 "/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="110.949,33.61 108.96,37.054 106.972,33.61 "/>
-<polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="68.627,37.054 68.627,26.721 65.127,26.721 "/>
+<polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="68.627,37.054 68.627,30.721 "/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="70.616,33.61 68.627,37.054 66.639,33.61 "/>
 </svg>

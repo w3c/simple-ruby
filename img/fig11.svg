@@ -360,8 +360,8 @@
 </g>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="48.482" y1="35.183" x2="48.482" y2="21.183"/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" stroke-dasharray="2" x1="83.502" y1="7.575" x2="83.502" y2="57.183"/>
-<g>
-	<text fill="#008CD6" x="100%" y="6" font-size="8" text-anchor="end" font-family="sans-serif" font-weight="lighter">Line end</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="160" y="30" font-size="28" font-family="sans-serif" font-weight="lighter">Line end</text>
 </g>
 <g>
 	<rect x="27.53" y="42.231" fill="none" stroke="#008CD6" stroke-width="0.5" width="56" height="14"/>

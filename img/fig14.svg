@@ -207,8 +207,8 @@
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="56.25" y1="117.971" x2="56.25" y2="103.971"/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="14.25,103.971 14.25,96.971 21.25,96.971 21.25,103.971 "/>
 <polyline fill="none" stroke="#008CD6" stroke-width="0.5" points="49.123,103.971 49.123,96.971 56.123,96.971 56.123,103.971 "/>
-<g>
-	<text fill="#008CD6" x="50%" y="15" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="lighter">1/2 size of base</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="110" y="50" font-size="28" text-anchor="middle" font-family="sans-serif" font-weight="lighter">1/2 size of base</text>
 </g>
 <g>
 	<path d="M7.896,28.199c0.686-0.539,1.295-1.225,1.722-1.939c0.217-0.371,0.287-0.539,0.287-0.693c0-0.112-0.091-0.224-0.351-0.399

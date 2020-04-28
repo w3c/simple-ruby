@@ -6,8 +6,8 @@
 ]>
 <svg  version="1.1" id="レイヤー_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="141.963"
 	 viewBox="0 0 94.642 202.492" overflow="visible" enable-background="new 0 0 94.642 202.492" xml:space="preserve">
-<g>
-	<text fill="#008CD6" x="0" y="6" font-size="8" font-family="sans-serif" font-weight="lighter">Example of mono-ruby</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="0" y="28" font-size="28" font-family="sans-serif" font-weight="lighter">Example of mono-ruby</text>
 </g>
 <g>
 	<path d="M1.648,16.01c0.329,0.238,0.561,0.315,0.932,0.315c0.321,0,0.84-0.091,1.147-0.21c-0.161-0.301-0.44-0.665-0.602-0.784
@@ -416,8 +416,8 @@
 </g>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="63.25" y1="21.303" x2="59.75" y2="21.303"/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="45.75" y1="21.303" x2="42.25" y2="21.303"/>
-<g>
-	<text fill="#008CD6" x="0" y="147.7" font-size="8" font-family="sans-serif" font-weight="lighter">Example of group-ruby</text>
+<g transform="scale(0.3)">
+	<text fill="#008CD6" x="0" y="492" font-size="28" font-family="sans-serif" font-weight="lighter">Example of group-ruby</text>
 </g>
 <g>
 	<path d="M1.075,161.745c0.672-0.42,1.364-0.987,1.883-1.533c0.42-0.441,0.924-1.099,1.337-1.743
@@ -864,8 +864,8 @@
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="49.38" y1="92.351" x2="49.38" y2="85.351"/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="56.38" y1="91.756" x2="56.38" y2="84.756"/>
 <line fill="none" stroke="#008CD6" stroke-width="0.5" x1="63.38" y1="91.756" x2="63.38" y2="84.756"/>
-<g>
-	<text fill="#008CD6" x="0" y="77.2" font-size="8" font-family="sans-serif" font-weight="lighter">Example of jukugo-ruby</text>
+<g transform="scale(0.28)">
+	<text fill="#008CD6" x="0" y="275" font-size="28" font-family="sans-serif" font-weight="lighter">Example of jukugo-ruby</text>
 </g>
 <g>
 	<path d="M3.409,91.167c0.791-0.175,1.295-0.385,1.688-0.714c0.427-0.35,0.65-0.784,0.65-1.267c0-0.581-0.406-0.952-1.036-0.952
