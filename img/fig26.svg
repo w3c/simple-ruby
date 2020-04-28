@@ -4,8 +4,8 @@
 	<!ENTITY ns_svg "http://www.w3.org/2000/svg">
 	<!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
 ]>
-<svg  version="1.1" id="レイヤー_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="137.25" height="61.559"
-	 viewBox="0 0 137.25 61.559" overflow="visible" enable-background="new 0 0 137.25 61.559" xml:space="preserve">
+<svg  version="1.1" id="レイヤー_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="170" height="123.118"
+	 viewBox="0 0 85 61.559" overflow="visible" enable-background="new 0 0 137.25 61.559" xml:space="preserve">
 <g>
 	<path d="M14.572,5.348c0.692-0.546,1.295-1.232,1.722-1.946c0.217-0.371,0.287-0.539,0.287-0.693c0-0.112-0.091-0.217-0.351-0.399
 		c0.077-0.021,0.112-0.028,0.154-0.028c0.126,0,0.371,0.098,0.574,0.238c0.245,0.161,0.343,0.266,0.343,0.378
@@ -457,8 +457,6 @@
 	<line fill="none" stroke="#000000" stroke-width="0.25" x1="56.133" y1="7.125" x2="56.133" y2="0.125"/>
 	<line fill="none" stroke="#000000" stroke-width="0.25" x1="63.133" y1="7.125" x2="63.133" y2="0.125"/>
 </g>
-<polyline fill="none" stroke="#000000" stroke-width="0.25" points="137.125,21.125 137.125,28.125 130.125,28.125 130.125,21.125 
-	"/>
 <g>
 	<polyline fill="none" stroke="#000000" stroke-width="0.25" points="26.396,21.208 26.396,28.208 19.395,28.208 19.395,21.208 	"/>
 </g>
