@@ -241,9 +241,12 @@ the system to be designed needs to be very complex.</p>
 <ol>
   <li>Ruby is used to display the reading or the meaning of the base characters.
     Therefore, the number one priority here is to avoid misreadings.
-    <span class="translateme">具体的には，親文字列からはみ
-    出したルビ文字は，前後に配置する漢字だけでなく，仮名にも掛
-    けない方式とした．</span>
+    <span class="checkme">
+    Specifically, the ruby string which protrudes from the base character 
+    string is not allowed to be laid over the characters preceding or 
+    following, nevertheless preceding or following characters are Kanji or 
+    Kana characters. 
+    </span>
 
     <aside class=note title="Protruding over surrounding characters">
       The main placement method defined in JIS X 4051 [[JIS4051]]
@@ -253,20 +256,30 @@ the system to be designed needs to be very complex.</p>
   </li>
   <li>The method is agnostic to horizontal vs vertical writing,
     and will use the same logic in either case.
-    <span class="translateme">具体的には，モノルビでは，親文字列とルビ文
-    字列の中心をそろえる方式のみとした．</span>
+    <spanclass="checkme">
+    Specifically, the center of the ruby string and of the base character 
+    string are aligned in the inline direction for mono-ruby. 
+    </span>
     </li>
-  <li><span class="translateme">2 レベルの処理方式とした．第 1 レベルでは，親文字及びル
-  ビ文字（両者を合わせて，以下，親文字群という）のみの情報か
-  ら，親文字とルビ文字の配置関係を決める．第 2 レベルでは，親
-  文字群の前後に配置する文字を考慮して，行の中での親文字群の
-  配置位置を確定する．逆に言えば，第 1 レベルで決めた親文字と
-  ルビ文字の配置関係は，親文字群の前後に配置する文字により修
-  正することはしない．また，親文字群が行頭又は行末に配置され
-  ることにより，親文字とルビ文字の配置関係を直し，親文字の先
-  頭又は末尾を行頭又は行末にそろえる配置方法は採用しない．つ
-  まり，第 1 レベルで決定した事項は，第 2 レベルでは修正しない
-  方式とした．</span>
+  <li><span class="checkme">Two step processing method is taken. 
+    In the first step, processing of layout only considers about the ruby 
+    string and the base character string (collectively call both of them as 
+    the ruby block in this note), to decide relative position of the ruby 
+    string and the ruby base character string. 
+    In the second step, processing of layout decides a position of the ruby 
+    base character string in a line, with consideration of preceding and 
+    following characters.
+    On the other word, the relative position of the ruby string and the 
+    ruby base character string decided in the first step is not modified 
+    regarding of any preceding and following characters. 
+    Also, this note does not take a method to align the first or last 
+    character of the ruby base character string to the line head or the line 
+    end, by modifying the relative position of the ruby string and the ruby 
+    base character string when the ruby base character string is placed at 
+    the line head or the line end. 
+    Summarizing the above, resulting positionings by the first step are not 
+    modified by the second step at all. 
+    </span>
     </li>
   <li><span class="translateme">ルビの配置方法として，JLReq や JIS X 4051（日本語文書の組
   版方法）では，複数の方法が示されているケースがあるが，ここ
