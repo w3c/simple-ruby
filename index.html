@@ -50,11 +50,20 @@
       .translateme {
         background-color: #F3F3C3;
       }
+      .checkme {
+        background-color: #BBEFFC;
+      }
+      .checkme::before {
+        content: ' Check this translation: ';
+        color: coral;
+        border-left: 4px solid coral;
+        padding-left: .5em;
+      }
     </style>
   </head>
 <body>
 <section id="abstract">
-  <p>This document describes simple method of processing for Ruby 
+  <p class="checkme">This document describes simple method of processing for Ruby 
   in Japanese layout realized with technologies like CSS, SVG, and XML-FO, 
   as references to rendering engine implementors. 
   Unlike 
@@ -68,7 +77,7 @@
   described in [[JLREQ]].
   </p>
 
-  <p>In [[JLREQ]], which also targets to present various methods of layout 
+  <p class="checkme">In [[JLREQ]], which also targets to present various methods of layout 
   used in the past, multiple or over-complexed ways of processing are 
   described for one point. 
   Expecially in processing of Ruby, number of cases need to be taken in 
@@ -124,6 +133,7 @@ for more information.)
       Notes are sometimes placed between lines
       similarly to how ruby is laid out
       (inter-linear notes).
+      <span class="checkme">
       The processing of this arrangement is not covered in this document.
       Putting line break within ruby string is not allowed for mono-ruby. 
       In addition, putting line break within ruby base text is not allowed 
@@ -132,6 +142,7 @@ for more information.)
       putting line breaks within both ruby base text and ruby string
       need to be allowed where appropriate, and that lead the processing 
       to be different from ruby considered in this note. 
+      </span>
     </aside>
 
 <section>
@@ -150,6 +161,7 @@ in order to decide on the position:</p>
     whether it can be allowed to be laid over the characters preceding or following,
     and whether this affects the position of the base characters</p>
     <aside class=note title="Protrusion of ruby from base characters">
+      <span class="checkme">
       From principle not to have extra spacing in Japanese composition, 
       one method of layout is to lay over the ruby string preceding or 
       following Kana characters but not to lay over the ruby string proceding 
