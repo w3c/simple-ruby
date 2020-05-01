@@ -54,20 +54,29 @@
   </head>
 <body>
 <section id="abstract">
-  <p class="translateme">この文書では，CSS，SVG 及び XSL-FO などの技術で実現が求め
-    られる日本語組版のルビ処理について，実装する際の参考となる簡便
-    な処理方法を示した．簡便なルビ処理方法を実現するために，ここで
-    は，JLReq とは異なり，何を選べばよいか，何が重要であるかを考慮
-    し，配置方法を一つに絞ることにした（どのような事項を考慮したか
-    は次項で解説する）．あわせて，JLReq で解説していない両側ルビの
-    配置方法を追記した．</p>
+  <p>This document describes simple method of processing for Ruby 
+  in Japanese layout realized with technologies like CSS, SVG, and XML-FO, 
+  as references to rendering engine implementors. 
+  Unlike 
+  <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a>
+  [[JLREQ]], only one layout method for each case is presented in this 
+  document, with consideration of best practices and important points in 
+  Japanese layout. 
+  Points took in consideration are described in 
+  <a href="#matters-considered-by-the-simple-placement-rules"></a>. 
+  Also layout of dual ruby composition is added in this document which is not 
+  described in [[JLREQ]].
+  </p>
 
-  <p class="translateme">JLReq では，過去に行われていた処理例を紹介する意味もあり，一
-    つのことに複数の処理方法や，かなり複雑な処理方法を示している．
-    なかでも，ルビ処理では，さまざまなケースが出現し，また，ある要
-    求事項を組版で実現しようとすると矛盾が出てしまう例もある（後述
-    の注の“親文字からのルビのはみ出し”参照）．こうした事項まで考慮
-    して自動処理を行うためには，かなり複雑な方法となる．</p>
+  <p>In [[JLREQ]], which also targets to present various methods of layout 
+  used in the past, multiple or over-complexed ways of processing are 
+  described for one point. 
+  Expecially in processing of Ruby, number of cases need to be taken in 
+  consideration, and contradiction could happen for some combinations of 
+  requirements (see Note. "Protrusion of ruby from base characters").
+  To enable automatic processing with these points in consideration, 
+  quite complexed methods are required.
+  </p>
 
   <p>In such cases, rather than ideal positioning,
   we must at least make sure that the positioning causes no misunderstanding;
@@ -78,8 +87,8 @@
   It is expected that a full system may be more complex that what is described here,
   both due to the interaction with other features or other writing systems,
   and because those designing such system may wish to provide alternative options.
-  Note that the terminology is based on that defined in
-  <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a> [[JLREQ]].</p>
+  Note that the terminology is based on that defined in [[JLREQ]].
+  </p>
 </section>
 <section id="sotd">
   <p>
@@ -116,15 +125,13 @@ for more information.)
       similarly to how ruby is laid out
       (inter-linear notes).
       The processing of this arrangement is not covered in this document.
-      <span class="translateme">モノルビでは，そこに付くルビ
-      文字列の 2 行にわたる分割（以下，分割
-      という）は認められていない．さらに，グ
-      ループルビでは親文字列の分割も認められ
-      ていない．これに対し，行間注では，分量
-      が多くなるケースも予想され，親文字列又
-      は行間注の文字列は，分割可能位置での分
-      割を認める必要があり，異なる配置処理が
-      必要になるからである．</span>
+      Putting line break within ruby string is not allowed for mono-ruby. 
+      In addition, putting line break within ruby base text is not allowed 
+      for group-ruby. 
+      In contrast, interlinear notes may have large number of characters, 
+      putting line breaks within both ruby base text and ruby string
+      need to be allowed where appropriate, and that lead the processing 
+      to be different from ruby considered in this note. 
     </aside>
 
 <section>
@@ -143,27 +150,30 @@ in order to decide on the position:</p>
     whether it can be allowed to be laid over the characters preceding or following,
     and whether this affects the position of the base characters</p>
     <aside class=note title="Protrusion of ruby from base characters">
-      <span class="translateme">
-        できるだけ
-        字間を空けないということから，親文字か
-        らはみ出したルビを漢字には掛けないが，
-        仮名には掛ける，とした場合，前後が仮名
-        の場合はよいとしても，親文字の前が仮名
-        で，後ろが漢字といったときに，ルビ文字
-        の字数によっては見た目のバランスを壊す
-        場合も出てくる（モノルビの例を図 1 に
-        示す，上側が漢字には掛けないが，仮名に
-        掛けるとした方針で処理した例）．グルー
-        プルビでも，同様である（図 2 参照）．こ
-        うした場合，活字組版では個別箇所のケー
-        スに応じて配置位置を工夫していた．
-        また，ルビ文字が片仮名の場合は，単語
-        としてのまとまりがあり，前後の仮名にも
-        掛けないという考え方をする出版社もあっ
-        た．この場合も，ルビの字数によっては，
-        仮名にも掛けないとした方が見た目のバラ
-        ンスはよいであろう（図 3 参照，下側が
-        仮名に掛けないとした方針で処理した例）．
+      From principle not to have extra spacing in Japanese composition, 
+      one method of layout is to lay over the ruby string preceding or 
+      following Kana characters but not to lay over the ruby string proceding 
+      or following Kanji characters. 
+      With this method, processing may go smoothly for the case with Kana 
+      characters as both proceding and following of ruby base text, 
+      but there is possible case of unbalanced display, 
+      like a combination of Kana character as proceding of ruby base text 
+      and Kanji character as following of ruby base text
+      (see <a href="#ruby-protruding-mono"></a> as mono-ruby case, 
+      upper panel takes a rule to lay over the ruby string preceding or
+      following Kana characters but not to lay over the ruby string proceding   
+      or following Kanji characters.) 
+      This is also the same for group-ruby 
+      (see <a href="#ruby-protruding-group"></a>). 
+      In manual typesetting, layout was adjusted with a situation of
+      each case taken into account. Some publishers placed an additional 
+      rule for ruby string in Katakana not to lay over the Katakana ruby 
+      string any of preceding or following character, since ruby string 
+      in Katakana are considered as a unit. 
+      For such case, a method not to lay over any ruby string could gain 
+      layout with balanced appearance depends on size of the ruby string 
+      (see <a href="#ruby-protruding-group-kana"></a>, lower panel takes 
+      the method). 
       </span>
       <figure id=ruby-protruding-mono>
         <img src="img/fig01.svg" />
