@@ -387,11 +387,12 @@ it is explained last.</p>
 <h3 id="placement-of-mono-ruby">Placement of mono-ruby</h3>
 
 <p>Mono-ruby is placed as follows. 
-<span class="translateme">なお，前述の“配置ルールで考
-慮した事項”の（3）の 2 レベルの処理方式でいえば，以下の説明の
-（1），（2）及び（3）項は，第 1 レベルの親文字及びルビ文字の配置処
-理であり，（4）及び（5）項は，第 2 レベルの親文字群を行中に配置
-する処理である．</span>
+<span class="checkme">
+To align following items to the two step processing method described in 
+<a href="#matters-considered-by-the-placement-rules"></a>, 
+points 1, 2, and 3 are of the first step, and points 4 and 5 are of the second 
+step. 
+</span>
 </p>
 
 <ol>
@@ -436,13 +437,20 @@ it is explained last.</p>
     which have spacing before or after the symbols, 
     the ruby characters do hang over the preceding or following characters
     (see <a href="#mono-ex-2"></a>).
-    <span class="translateme">（ここで，句
-    点類（cl-06）などの処理に差をつけたのは，句点類（cl-06）な
-    どは，文章の区切りとして重要な役割を果たしており，これらの
-    後ろや前後の空きをできるだけ一定していることが望ましく，特
-    にこれらの空きが大きくなると，区切りの意味を変える恐れがあ
-    ること，また，冒頭の注の“親文字からのルビのはみ出し”で述
-    べたような問題もでないことによる．）</span>
+    <span class="checkme">
+    (Punctuation marks like 
+    <a href="https://www.w3.org/TR/jlreq/#cl-06">Full stops (cl-06)</a> 
+    [[JLREQ]] play an important role as breaks between sentences, 
+    it is desired to keep constant spacing for preceding or following of these 
+    characters that having extra spacing around these characters could change 
+    a meaning of breaks between sentences. 
+    Also there is no issue like ones noted in note 
+    "Protrusion of ruby from base characters". 
+    Therefore, this method places a different layout on punctuation marks like 
+    <a href="https://www.w3.org/TR/jlreq/#cl-06">Full stops (cl-06)</a> 
+    [[JLREQ]].
+    )
+    </span>
 
     <ul>
       <li>If the character preceding the base character is one of:
