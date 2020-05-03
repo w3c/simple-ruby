@@ -515,22 +515,26 @@ step.
 <section>
 <h3 id="placement-of-group-ruby">Placement of group-ruby</h3>
 
-<p class="translateme">ここでは連数字中の文字（cl-24），単位記号中の文字（cl-25），欧文
-用間隔（cl-26），欧文用文字（cl-27）のように固有の字幅を持った文
-字（以下，この項では“欧文用文字等”という）と，平仮名（cl-15），
-片仮名（cl-16），漢字等（cl-19）など（以下のこの項では“仮名等”
-という）の 2 つに分けて，その組合せで配置方法を説明する．欧文用
-文字等は，複数の文字をまとめて読むので，字間を空ける処理は，で
-きるだけ避けたいという事情があるからである．
-
-    <a href="https://www.w3.org/TR/jlreq/#cl-24">Grouped numerals (cl-24)</a>,
-    <a href="https://www.w3.org/TR/jlreq/#cl-25">Unit symbols (cl-25)</a>,
-    <a href="https://www.w3.org/TR/jlreq/#cl-26">Western word space (cl-26)</a>,
-    <a href="https://www.w3.org/TR/jlreq/#cl-27">Western characters (cl-27)</a>
-    <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a>,
-    <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>,
-    <a href="https://www.w3.org/TR/jlreq/#cl-19">Ideographic characters (cl-19)</a> [[JLREQ]],
-
+<p>
+<span class="checkme">
+In this section, placement rules of group-ruby are described as combinations 
+of two groups of characters, 
+one as 'Western characters' which has proportional width 
+and consisted with characters like 
+<a href="https://www.w3.org/TR/jlreq/#cl-24">Grouped numerals (cl-24)</a>,
+<a href="https://www.w3.org/TR/jlreq/#cl-25">Unit symbols (cl-25)</a>,
+<a href="https://www.w3.org/TR/jlreq/#cl-26">Western word space (cl-26)</a>,
+and 
+<a href="https://www.w3.org/TR/jlreq/#cl-27">Western characters (cl-27)</a>
+[[JLREQ]], 
+and another as 'Kana characters' which consisted with characters like 
+<a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a>,
+<a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>, and 
+<a href="https://www.w3.org/TR/jlreq/#cl-19">Ideographic characters (cl-19)</a>
+[[JLREQ]]. 
+For Western chracters, strings are read by clusters of multiple characters, 
+adding spacing between characters for justification are wanted to avoid. 
+</span>
 The way they are positioned depends
 on how their respective lengths would
 compare if they were each laid out
@@ -539,38 +543,45 @@ When their respective lengths would be the same,
 both are laid out without inter-letter spacing
 and placed such that their respective centers in the inline direction are aligned
 (see <a href="#group-ruby"></a>).
-それ以外のグループルビの配置処理は，次による．</p>
+<span class="checkme">
+For other cases, the placement depends on the following:
+</span>
+</p>
 <figure id=group-ruby>
   <img src="img/fig12.svg" />
   <figcaption>Example 1 of group-ruby</figcaption>
 </figure>
 
 <aside class=note title="Inter-letter spacing in group-ruby">
-<span class="translateme">
-グルー
-プルビの場合，ルビ文字の全体と親文字の
-全体とが対応していることが望ましい．し
-かし，字数によって文字列の長さが異な
-る．そこで仮名等の場合，ルビ文字列や親
-文字列の字間や，その前後を空けて対応
-をとる．ここで採用している前後のアキ 1
-に対し，字間を 2 の比率で空ける方法は，
-活字組版の時代でも，見た目のバランスの
-良い方法といわれていた．
-これに対し，欧文用文字等では，全体の
-対応よりは，欧文用文字等のまとまりを重
-視し，字間を空ける処理を採用しないこと
-とした．
+<span class="checkme">
+In the case of group-ruby, it is desired to align the length of ruby string 
+and the length of ruby base character string, but these lengths could differ 
+by numbers of characters. To compensate their difference, adding spacing 
+to preceding, following, and inter-letter of ruby string or ruby base 
+character string is used for Kana characters. 
+Adding spacing by a ratio of 1 to preceding and following, and 2 to 
+inter-letter was noted as a method to make well balanced layout in letterpress 
+printing, and is used in following method. 
+In contrast, for Western characters, this note focuses on keeping clusters of 
+Western characters rather than alignment of lengthes, and does not take 
+a method to have inter-letter spacing. 
 </span>
 </aside>
 
-<p class="translateme">なお，前述の 2 レベルの処理方式でいえば，以下の説明の（1），
-（2）及び（3）項は，第 1 レベル，（4）及び（5）項は，第 2 レベルの
-配置処理である．</span>
+<p>
+<span class="checkme">
+To align following items to the two step processing method described in 
+<a href="#matters-considered-by-the-placement-rules"></a>, 
+points 1, 2, and 3 are of the first step, and points 4 and 5 are of the second 
+step. 
+</span>
+</p>
 
 <ol>
   <li>
-    <p class="translateme">ルビ文字及び親文字が“仮名等”の場合は
+    <p class="checkme">
+    For both of ruby string and ruby base character string are consisted with 
+    Kana characters, 
     the placement depends on the following:</p>
     <ul>
       <li>
@@ -614,7 +625,9 @@ and placed such that their respective centers in the inline direction are aligne
     </ul>
   </li>
   <li>
-    <p class="translateme">ルビ文字が仮名等，かつ，親文字が欧文用文字等の場合は，
+    <p class="checkme">
+    For ruby string is consisted with Kana characters and 
+    ruby base character string is consisted with Western characters, 
     the placement depends on the following (see <a href="#ruby-west"></a>):</p>
     <ul>
       <li>When the ruby string is shorter than the base character string,
@@ -635,7 +648,9 @@ and placed such that their respective centers in the inline direction are aligne
     </figure>
   </li>
   <li>
-    <p class="translateme">ルビ文字が欧文用文字等，かつ，親文字が仮名等の場合は，
+    <p class="checkme">
+    For ruby string is consisted with Western characters and 
+    ruby base character string is consisted with Kana characters, 
     the placement depends on the following (see <a href="#ruby-west"></a>):</p>
     <ul>
       <li>When the ruby string is shorter than the base character string,
@@ -688,10 +703,13 @@ and placed such that their respective centers in the inline direction are aligne
 <h3 id="placement-of-jukugo-ruby">Placement of Jukugo-ruby</h3>
 
 <p>Jukugo-ruby is placed as follows:</p>
-<p class="translateme">なお，前述の 2 レベルの処理方
-式でいえば，以下の説明の（1），（2）及び（3）項は，第 1 レベル，
-（4）項は，第 2 レベルの配置処理である．</p>
-
+<span class="checkme">
+To align following items to the two step processing method described in 
+<a href="#matters-considered-by-the-placement-rules"></a>, 
+points 1, 2, and 3 are of the first step, and point 4 is of the second 
+step. 
+</span>
+</p>
 <ol>
   <li>
     <p>With jukugo-ruby, each base character is associated with its own ruby string.
