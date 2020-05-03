@@ -281,22 +281,29 @@ the system to be designed needs to be very complex.</p>
     modified by the second step at all. 
     </span>
     </li>
-  <li><span class="translateme">ルビの配置方法として，JLReq や JIS X 4051（日本語文書の組
-  版方法）では，複数の方法が示されているケースがあるが，ここ
-  では上記の方針で 1 つの方法に限定した．また，ここで示した処
-  理法は，原則として JIS X 4051 で規定している方法によった．
-  ただし，処理系定義として採用できる処理方法（オプション）を
-  採用した場合がある．例えば，はみ出したルビを仮名にも掛けな
-  いという方法は，処理系定義として採用できる方式である．</span>
+  <li>
+    <span class="checkme">
+    Although there are some cases with multiple methods of layout in [[JLREQ]] 
+    and JIS X 4051 [[JIS4051]], this note describes only one method based on 
+    policies described above. 
+    Also methods described in this note are mostly chosen from ones provided 
+    in JIS X 4051 [[JIS4051]]. 
+    In some cases, this note picks optional methods to be allowed as 
+    implementation defined, such that protruding ruby string is not laid over 
+    any preceding and following Kana characters. 
+    </span>
     </li>
-  <li><span class="translateme">ルビ文字の文字サイズを大きく（逆に小さくしたい）という要
-  求がある．そこで，ルビの文字サイズは，親文字の文字サイズの
-  1/2 を初期値（デフォルト値）として採用し，図版では，ルビの
-  文字サイズは親文字の文字サイズの 1/2 で示したが，空きなどの
-  サイズはルビ文字の文字サイズを基準とするのではなく，親文字
-  の文字サイズを基準として規定することにより，ルビの文字サイ
-  ズが親文字の文字サイズの 1/2 以外であっても採用できる配置
-  方法とした．</span>
+  <li>
+    <span class="checkme">
+    There is a demand to use larger (or smaller) font size for ruby string. 
+    In this note, a default font size of ruby string is set to half of a 
+    font size of ruby base character string, and examples in figures are 
+    shown with the default font size. 
+    Sizes of spacing adjustments during justification are defined based on 
+    a font size of ruby base character string but not of ruby string, 
+    and this makes methods of layout are applicable for cases whose font size 
+    of ruby string is not a half of its ruby base character string. 
+    </span>
     </li>
 </ol>
 
