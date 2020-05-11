@@ -779,57 +779,69 @@ step.
 <h2 id="placement-of-dual-ruby">Placement of dual-ruby</h2>
 
 <section>
-<h3 id="">ルビの種類の組合せで配置を決める</h3>
-<p class="translateme">
-両側にルビを配置する場合，その処理は複雑になるが，簡単な方法
-として，モノルビ，グループルビ及び熟語ルビの組合せで配置方法を
-決めることができる．なお，親文字からはみ出したルビ文字の前後の
-文字との関係，行頭・行末の配置処理は，片側にルビが付く場合と同
-じである．
+<h3 id="placement-of-dual-ruby-by-combination-of-type-of-ruby">Placement of dual-ruby by combination of type of ruby</h3>
+<p class="checkme">
+Quite complexed methods are required on full rules for placement of dual ruby 
+composition. For simple placement of dual-ruby, rules could be written per 
+combinations of mono-ruby, group-ruby, and jukugo-ruby for two sides. 
+As the same as the two step processing, consideration of the ruby string that 
+extended beyond the ruby base characters with preceding and following 
+characters, and placement at the line head or the line end are processed as 
+the same way as when the ruby string is used for one side. 
 </p>
 
 <aside class=note title="Space between adjacent lines and dual-ruby">
-<span class="translateme">
-両側にルビを付けた行が
-重なると，行間の設定によっては，隣り同
-士の行のルビが重なるケースが出る．これ
-は避けないといけない．以下のような方法
-が考えられる．
+<span class="checkme">
+When two adjacent rows has dual-ruby, overlap of two ruby strings could happen 
+for configuration of space between lines, which cases should be avoided. 
+Following methods could be applied to avoid these cases:
+</span>
 <ul>
-  <li>あらかじめ隣り同士のルビ文字が
-  重ならないように，文書全体の行間を設定
-  しておく．</li>
-  <li>重なりが発生した該当する行間だ
-  けを広げて，ルビが重ならないようにす
-  る．この場合，重なった前の行のルビと，
-  後ろのルビが重ならないだけでなく，例え
-  ば，その間は本文文字サイズの四分は空け
-  るとする方法も行われていた．</li>
-  <li>該当する行間ではなく，両側にル
-  ビの付いた行そのものを複数の行の領域に
-  配置する．両側にルビの付いた行を，例え
-  ば，2 行分のスペース（2 行取り）とする．</li>
-  <li>重なりが発生した行間だけではな
-  く，該当する段落全体の行間を広げて，ル
-  ビが重ならないようにする．</li>
+  <li>
+    <span class="checkme">
+    Configure space between lines over whole document in advance to avoid 
+    overlap of two ruby strings. 
+    </span>
+  </li>
+  <li>
+    <span class="checkme">
+    Use wider line gap where overlap of two ruby strings happens to avoid 
+    overlap. In some methods, a rule to have quarter em gap between two ruby 
+    strings in addition to avoiding overlap was applied. 
+    </span>
+  </li>
+  <li>
+    <span class="checkme">
+    Place lines with dual-ruby at reagions for multiple lines, instead of 
+    having wider line gaps. 
+    For example, lines with dual-ruby are set at the center of a two line 
+    space ("center of two line space"). 
+    (see <a href="https://www.w3.org/TR/jlreq/#processing_of_gyoudori">JLReq "Processing of Gyou-dori"</a> [[JLREQ]])
+    </span>
+  </li>
+  <li>
+    <span class="checkme">
+    Use wider line gap to avoid overlap of two ruby strings over whole 
+    paragraph but not the line gap where overlap of two ruby strings happens. 
+    </span>
+  </li>
 </ul>
-なお，活字組版では，ルビが多く付く，
-あるいはルビと共に注の合印などが多く入
-る場合は（1）の方法，ルビが少ない場合
-は（2）又は（3）の方法がとられていた．
-しかし，Web の自動処理を考えると（3）
-の処理でよいであろう．この方法で該当す
-る行に整数行の領域（例えば 2 行取り）
-を割り当てれば，行位置の乱れは，その部
-分だけですみ，段組とした場合などでは，
-隣りの段との行位置がそろう．
+<span class="checkme">
+In letterpress printing, first method was used for cases whose document has 
+large number of ruby or many reference marks of notes, second or third method 
+was used for cases whose document has less ruby. 
+In automatic processing used for the Web documents, third method might be 
+suitable. Using third method with assigning integer number of line spaces 
+(for example, center of two line space) makes disorder of line positioning 
+to be limited to the line, and line positions aligned to next column. 
+(see also <a href="https://www.w3.org/TR/jlreq/#adjustment_of_processing_of_realm_in_block_direction">JLReq "Adjustment of Processing of Realm in Block Direction"</a> [[JLREQ]])
 </span>
 </aside>
 
 </section>
 
 <section>
-<h3 id="">両側ルビの組合せ</h3>
+<h3 id="">両ルビの組合せ</h3>
 <p class="translateme">
 ルビの組合せとしては，次がある．
 （1）モノルビとモノルビ
