@@ -796,7 +796,7 @@ When two adjacent rows has dual-ruby, overlap of two ruby strings could happen
 for configuration of space between lines, which cases should be avoided. 
 Following methods could be applied to avoid these cases:
 </span>
-<ul>
+<ol>
   <li>
     <span class="checkme">
     Configure space between lines over whole document in advance to avoid 
@@ -825,7 +825,7 @@ Following methods could be applied to avoid these cases:
     paragraph but not the line gap where overlap of two ruby strings happens. 
     </span>
   </li>
-</ul>
+</ol>
 <span class="checkme">
 In letterpress printing, first method was used for cases whose document has 
 large number of ruby or many reference marks of notes, second or third method 
@@ -841,49 +841,53 @@ to be limited to the line, and line positions aligned to next column.
 </section>
 
 <section>
-<h3 id="">両ルビの組合せ</h3>
-<p class="translateme">
-ルビの組合せとしては，次がある．
-（1）モノルビとモノルビ
-（2）グループルビとグループルビ
-（3）モノルビとグループルビ
-（4）モノルビと熟語ルビ
-（5）一方が熟語ルビで片方が熟語ルビ又はグループルビ
+<h3 id="combination-of-type-of-ruby">Combination of type of ruby</h3>
+<p class="checkme">
+Possible combinations of type of ruby are as follows: 
+<ol>
+  <li>Mono-ruby and mono-ruby</li>
+  <li>Group-ruby and group-ruby</li>
+  <li>Mono-ruby and group-ruby</li>
+  <li>Mono-ruby and jukugo-ruby</li>
+  <li>Jukugo-ruby with group-ruby or jukugo-ruby</li>
+</ol>
 </p>
 </section>
 
 <section>
-<h3 id="">ルビの種類の組合せと配置方法</h3>
-<p class="translateme">
-JIS X 4051 では，前項の（1），（2）及び（3）の組合せの配置方
-法のみを規定している．ただし，（3）は，連続するモノルビを一つの
-グループルビとして扱う処理なので，結果として，その配置方法は，
-（2）である．
+<h3 id="rules-for-placement-of-dual-ruby-per-combinations">Rules for placement of dual-ruby per combinations</h3>
+<p class="checkme">
+In JIS X 4051 [[JISX4051]], first, second, and third cases in above list of 
+combinations are ruled. 
+(see <a href="https://www.w3.org/TR/jlreq/#n104">note in JLReq</a> [[JLREQ]]) 
+A rule of placement of the third case is to process continuous mono-ruby as 
+group-ruby, and the same as the second case as a result. 
 </p>
-<p class="translateme">
-ところで，（4）のモノルビと熟語ルビとの組合せは，熟語ルビの熟
-語を構成する個々の漢字とそれに対応するルビ文字との組合せを一つ
-のモノルビとして扱えば，（1）の方法が採用でき，（5）の一方が熟語
-ルビで片方が熟語ルビ又はグループルビの組合せは，熟語ルビをグル
-ープルビとして扱えば，（2）の方法が採用できる．
+<p class="checkme">
+For the fourth case of mono-ruby and jukugo-ruby, the first case is applicable 
+with dividing jukugo-ruby into continuous mono-ruby by picking individual pairs of Kanji character as ruby base character and ruby string.
+For the fifth case of jukugo-ruby with group-ruby or jukugo-ruby, the second 
+case is applicable with handling jukugo-ruby as group-ruby. 
 </p>
-<p class="translateme">
-以下では，（1）及び（2）の配置方法を説明する．
+<p class="checkme">
+In this section, rules for simple placement of dual-ruby on first and second 
+cases as follows:
 </p>
-<p class="translateme">
-なお，ルビ文字をどちら側に配置するかは，指定のよる．
+<p class="checkme">
+In addition, disposition of two ruby strings to two sides follows specified by 
+the contents.
 </p>
 </section>
 
 <section>
-<h3 id="">モノルビとモノルビの配置処理</h3>
-<p class="translateme">
-モノルビとモノルビの組合せでは，ルビ文字列の字間はベタ組と
-し，それぞれのルビ文字列と親文字列とは，字詰め方向の中心をそろ
-えて配置する
+<h3 id="placement-of-combination-of-mono-ruby-and-mono-ruby">Placement of combination of mono-ruby and mono-ruby</h3>
+<p class="checkme">
+In a case of combination of mono-ruby and mono-ruby, ruby strings are set 
+solid, and ruby strings are placed so that their center match that of the 
+ruby base character 
 (see <a href="#dual-mono"></a>).
-その他は，前述したモノルビの配置方法
-と同じである．
+For other points, follow the same rules for placement of mono-ruby 
+described in [[[#placement-of-mono-ruby]]]. 
 </p>
 
 <figure id=dual-mono>
@@ -894,11 +898,15 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 </section>
 
 <section>
-<h3 id="">グループルビとグループルビの配置処理</h3>
-<p class="translateme">
-両側のルビ文字列がともに親文字より短い場合は，前述した“グル
-ープルビの配置方法”により配置する．ルビ文字が同項でいう仮名等
-の場合は，それぞれのルビ文字列の字間とその前後を空けて配置する
+<h3 id="placement-of-combination-of-group-ruby-and-group-ruby">Placement of combination of group-ruby and group-ruby</h3>
+<p class="checkme">
+When both of the ruby string are shorter than the ruby base character string, 
+follow the rules for placement of group-ruby described in 
+[[[#placement-of-group-ruby]]]. 
+When the ruby string is consisted with Kana characters defined in 
+[[[#placement-of-group-ruby]]], 
+spacing is inserted between every character in the ruby string as well as the 
+start and the end of the ruby string. 
 (see <a href="#dual-group-1"></a>).
 
 <figure id=dual-group-1>
@@ -907,18 +915,27 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 </figure>
 
 </p>
-<p class="translateme">
-親文字より長いルビ文字列を含む場合は，長い方のルビ文字列の長
-さに従い，前述した“グループルビの配置方法”により配置する．親
-文字が同項でいう仮名等の場合は，親文字列の字間とその前後を空け
-る．次に，その（仮名等の場合は字間を空けた）親文字列の長さ（前
-後の空きは含めない）に応じて残りの短い方のグループルビの配置方
-法を決める．
+<p class="checkme">
+When on of the ruby strings is longer than the base character string, 
+pick up the ruby string with longer length and place that ruby string 
+following the rules for placement of group-ruby described in 
+[[[#placement-of-group-ruby]]]. 
+When the ruby base character string is consisted with Kana characters 
+defined in 
+[[[#placement-of-group-ruby]]], 
+spacing is inserted between every character in the ruby base character string 
+as well as the start and the end of the ruby base character string. 
+Following placement of the ruby base character string, 
+place the shorter ruby string based on the length of the ruby base character 
+string without spacing at the start and the end, 
+but with inter-character spacing when the ruby base character string is 
+Kana characters. 
 </p>
-<p class="translateme">
-短い方のグループルビのルビ文字列の長さが（字間を空けた）親文
-字列長以上の場合は，ルビ文字列はベタ組とし，ルビ文字列と親文字
-列の字詰め方向の中心をそろえて配置する
+<p class="checkme">
+When the length of the shorter ruby string is longer than the ruby base 
+character string with inter-character spacing, the shorter ruby string is 
+set solid and ruby string is placed so that its center match that of the 
+ruby base character string 
 (see <a href="#dual-group-2"></a>).
 
 <figure id=dual-group-2>
@@ -928,10 +945,16 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 
 </p>
 <p class="translateme">
-短い方のグループルビのルビ文字列の長さが（字間を空けた）親文
-字列長未満の場合は，字間を空けた親文字の長さにそろえて，前述の
-“グループルビの配置方法”で配置する．ルビ文字が同項でいう仮名
-等の場合は，ルビ文字列の字間とその前後を空ける
+When the length of the shorter ruby string is shorter than the ruby base 
+character string with inter-character spacing, 
+follow the rules for placement of group-ruby described in 
+[[[#placement-of-group-ruby]]], 
+using the length of the ruby base character string with inter-character 
+spacing. 
+When the shorter ruby string is consisted with Kana characters described in 
+[[[#placement-of-group-ruby]]],
+spacing is inserted between every character in the ruby string 
+as well as the start and the end of the ruby string 
 (see <a href="#dual-group-3"></a>).
 
 <figure id=dual-group-3>
@@ -941,8 +964,8 @@ JIS X 4051 では，前項の（1），（2）及び（3）の組合せの�
 
 </p>
 <p class="translateme">
-いずれの場合でも，その他は，前述したグループルビの配置方法と
-同じである．
+For other points, follow the same rules for placement of mono-ruby 
+described in [[[#placement-of-group-ruby]]]. 
 </p>
 </section>
 
