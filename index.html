@@ -172,19 +172,19 @@ in order to decide on the position:</p>
       like a combination of Kana character as preceding of ruby base text 
       and Kanji character as following of ruby base text
       (see <a href="#ruby-protruding-mono"></a> as mono-ruby case, 
-      upper panel takes a rule to lay over the ruby string preceding or
+      first example takes a rule to lay over the ruby string preceding or
       following Kana characters but not to lay over the ruby string preceding   
       or following Kanji characters.) 
       This is also the same for group-ruby 
       (see <a href="#ruby-protruding-group"></a>). 
-      In manual typesetting, layout was adjusted with a situation of
+      In letterpress printing, layout was adjusted with a situation of
       each case taken into account. Some publishers placed an additional 
       rule for ruby string in Katakana not to lay over the Katakana ruby 
       string any of preceding or following character, since ruby string 
       in Katakana are considered as a unit. 
       For such case, a method not to lay over any ruby string could gain 
       layout with balanced appearance depends on size of the ruby string 
-      (see <a href="#ruby-protruding-group-kana"></a>, lower panel takes 
+      (see <a href="#ruby-protruding-group-kana"></a>, second example takes 
       the method). 
       </span>
       <figure id=ruby-protruding-mono>
@@ -244,8 +244,7 @@ the system to be designed needs to be very complex.</p>
     <span class="checkme">
     Specifically, the ruby string which protrudes from the base character 
     string is not allowed to be laid over the characters preceding or 
-    following, nevertheless preceding or following characters are Kanji or 
-    Kana characters. 
+    following, whether it is a Kanji or Kana character. 
     </span>
 
     <aside class=note title="Protruding over surrounding characters">
@@ -264,15 +263,15 @@ the system to be designed needs to be very complex.</p>
   <li><span class="checkme">Two step processing method is taken. 
     In the first step, processing of layout only considers about the ruby 
     string and the base character string (collectively call both of them as 
-    the ruby block in this note), to decide relative position of the ruby 
+    the ruby block in this document), to decide relative position of the ruby 
     string and the ruby base character string. 
     In the second step, processing of layout decides a position of the ruby 
     base character string in a line, with consideration of preceding and 
     following characters.
-    On the other word, the relative position of the ruby string and the 
+    In other words, the relative position of the ruby string and the 
     ruby base character string decided in the first step is not modified 
     regarding of any preceding and following characters. 
-    Also, this note does not take a method to align the first or last 
+    Also, this document does not take a method to align the first or last 
     character of the ruby base character string to the line head or the line 
     end, by modifying the relative position of the ruby string and the ruby 
     base character string when the ruby base character string is placed at 
@@ -284,11 +283,11 @@ the system to be designed needs to be very complex.</p>
   <li>
     <span class="checkme">
     Although there are some cases with multiple methods of layout in [[JLREQ]] 
-    and JIS X 4051 [[JISX4051]], this note describes only one method based on 
+    and JIS X 4051 [[JISX4051]], this document describes only one method based on 
     policies described above. 
-    Also methods described in this note are mostly chosen from ones provided 
+    Also methods described in this document are mostly chosen from ones provided 
     in JIS X 4051 [[JISX4051]]. 
-    In some cases, this note picks optional methods to be allowed as 
+    In some cases, this document picks optional methods to be allowed as 
     implementation defined, such that protruding ruby string is not laid over 
     any preceding and following Kana characters. 
     </span>
@@ -296,11 +295,11 @@ the system to be designed needs to be very complex.</p>
   <li>
     <span class="checkme">
     There is a demand to use larger (or smaller) font size for ruby string. 
-    In this note, a default font size of ruby string is set to half of a 
+    In this document, a default font size of ruby string is set to half of the 
     font size of ruby base character string, and examples in figures are 
     shown with the default font size. 
     Sizes of spacing adjustments during justification are defined based on 
-    a font size of ruby base character string but not of ruby string, 
+    the font size of ruby base character string but not of ruby string, 
     and this makes methods of layout are applicable for cases whose font size 
     of ruby string is not a half of its ruby base character string. 
     </span>
@@ -519,7 +518,7 @@ step.
 <span class="checkme">
 In this section, placement rules of group-ruby are described as combinations 
 of two groups of characters, 
-one as 'Western characters' which has proportional width 
+one as "Western characters" which has proportional width 
 and consisted with characters like 
 <a href="https://www.w3.org/TR/jlreq/#cl-24">Grouped numerals (cl-24)</a>,
 <a href="https://www.w3.org/TR/jlreq/#cl-25">Unit symbols (cl-25)</a>,
@@ -527,7 +526,7 @@ and consisted with characters like
 and 
 <a href="https://www.w3.org/TR/jlreq/#cl-27">Western characters (cl-27)</a>
 [[JLREQ]], 
-and another as 'Kana characters' which consisted with characters like 
+and another as "Kana characters" which consisted with characters like 
 <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a>,
 <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>, and 
 <a href="https://www.w3.org/TR/jlreq/#cl-19">Ideographic characters (cl-19)</a>
@@ -562,7 +561,7 @@ character string is used for Kana characters.
 Adding spacing by a ratio of 1 to preceding and following, and 2 to 
 inter-letter was noted as a method to make well balanced layout in letterpress 
 printing, and is used in following method. 
-In contrast, for Western characters, this note focuses on keeping clusters of 
+In contrast, for Western characters, this document focuses on keeping clusters of 
 Western characters rather than alignment of lengths, and does not take 
 a method to have inter-letter spacing. 
 </span>
