@@ -77,20 +77,21 @@
   described in [[JLREQ]].
   </p>
 
-  <p class="checkme">In [[JLREQ]], which also targets to present various methods of layout 
-  used in the past, multiple or over-complexed ways of processing are 
-  described for one point. 
-  Especially in processing of ruby, number of cases need to be taken in 
-  consideration, and contradiction could happen for some combinations of 
-  requirements (see Note. "Protrusion of ruby from base characters").
-  To enable automatic processing with these points in consideration, 
-  quite complexed methods are required.
+  <p class="checkme">
+  [[JLREQ]] in one part is a record of Japanese layout that has been 
+  established in printing industry. It explains multiple ways for one thing, 
+  and sometimes they can be very complex. Ruby is one such case. 
+  There are so many factors to consider and often requirements contradict 
+  each other (c.f. Note. "Protrusion of ruby from base characters").
+  It is challenging to automate ruby because of the complexity.
   </p>
 
-  <p>In such cases, rather than ideal positioning,
-  we must at least make sure that the positioning causes no misunderstanding;
-  there are also practical limits to how complex the system can be
-  in order to be practically implementable.</p>
+  <p class="checkme">
+  It would seem beneficial to come up with a method that is simple and robust, 
+  and one that is suitable for automatic processing. The positioning might 
+  not be as sophisticated but we must at least make sure that it causes no 
+  misunderstanding.
+  </p>
 
   <p>The following is a proposal for a simple processing system. The target audience is implementers and specification writers.
   It is expected that a full system may be more complex that what is described here,
