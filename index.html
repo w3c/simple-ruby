@@ -166,24 +166,35 @@ in order to decide on the position:</p>
       <span class="checkme">
       From principle not to have extra spacing between characters in Japanese composition, 
       one method of layout is to lay over the ruby string preceding or 
-      following Kana characters but not to lay over the ruby string preceding 
+      following 
+      <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
+      characters but not to lay over the ruby string preceding 
       or following Kanji characters. 
-      With this method, processing may go smoothly for the case with Kana 
+      With this method, processing may go smoothly for the case with 
+      <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
       characters as both preceding and following of ruby base text, 
       but there is possible case of unbalanced display, 
-      like a combination of Kana character as preceding of ruby base text 
+      like a combination of 
+      <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
+      character as preceding of ruby base text 
       and Kanji character as following of ruby base text
       (see <a href="#ruby-protruding-mono"></a> as mono-ruby case, 
       first example takes a rule to lay over the ruby string preceding or
-      following Kana characters but not to lay over the ruby string preceding   
+      following 
+      <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
+      characters but not to lay over the ruby string preceding   
       or following Kanji characters.) 
       This is also the same for group-ruby 
       (see <a href="#ruby-protruding-group"></a>). 
       In letterpress printing, layout was adjusted with a situation of
       each case taken into account. Some publishers placed an additional 
-      rule for ruby string in Katakana not to lay over the Katakana ruby 
-      string any of preceding or following character, since ruby string 
-      in Katakana are considered as a unit. 
+      rule for ruby string in 
+      <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a> [[JLREQ]]
+      not to lay over the 
+      <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a> [[JLREQ]]
+      ruby string any of preceding or following character, since ruby string in 
+      <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a> [[JLREQ]]
+      are considered as a unit. 
       For such case, a method not to lay over any ruby string could gain 
       layout with balanced appearance depends on size of the ruby string 
       (see <a href="#ruby-protruding-group-kana"></a>, second example takes 
@@ -528,7 +539,9 @@ and consisted with characters like
 and 
 <a href="https://www.w3.org/TR/jlreq/#cl-27">Western characters (cl-27)</a>
 [[JLREQ]], 
-and another as "Kana characters" which consisted with characters like 
+and another as "Japanese characters" which has fixed fullwidth 
+(see also <a href="https://w3c.github.io/jlreq/#kanji_hiragana_and_katakana">2.1.2 Kanji, Hiragana and Katakana</a> [[JLREQ]]) 
+and consisted with characters like 
 <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a>,
 <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>, and 
 <a href="https://www.w3.org/TR/jlreq/#cl-19">Ideographic characters (cl-19)</a>
@@ -559,7 +572,7 @@ In the case of group-ruby, it is desired to align the length of ruby string
 and the length of ruby base character string, but these lengths could differ 
 by numbers of characters. To compensate their difference, adding spacing 
 to preceding, following, and inter-letter of ruby string or ruby base 
-character string is used for Kana characters. 
+character string is used for "Japanese characters". 
 Adding spacing by a ratio of 1 to preceding and following, and 2 to 
 inter-letter was noted as a method to make well balanced layout in letterpress 
 printing, and is used in following method. 
@@ -582,7 +595,7 @@ step.
   <li>
     <p class="checkme">
     For both of ruby string and ruby base character string are consisted with 
-    Kana characters, 
+    "Japanese characters", 
     the placement depends on the following:</p>
     <ul>
       <li>
@@ -627,7 +640,7 @@ step.
   </li>
   <li>
     <p class="checkme">
-    For ruby string is consisted with Kana characters and 
+    For ruby string is consisted with "Japanese characters" and 
     ruby base character string is consisted with Western characters, 
     the placement depends on the following (see <a href="#ruby-west"></a>):</p>
     <ul>
@@ -651,7 +664,7 @@ step.
   <li>
     <p class="checkme">
     For ruby string is consisted with Western characters and 
-    ruby base character string is consisted with Kana characters, 
+    ruby base character string is consisted with "Japanese characters", 
     the placement depends on the following (see <a href="#ruby-west"></a>):</p>
     <ul>
       <li>When the ruby string is shorter than the base character string,
@@ -904,7 +917,7 @@ described in [[[#placement-of-mono-ruby]]].
 When both of the ruby string are shorter than the ruby base character string, 
 follow the rules for placement of group-ruby described in 
 [[[#placement-of-group-ruby]]]. 
-When the ruby string is consisted with Kana characters defined in 
+When the ruby string is consisted with "Japanese characters" defined in 
 [[[#placement-of-group-ruby]]], 
 spacing is inserted between every character in the ruby string as well as the 
 start and the end of the ruby string. 
@@ -921,7 +934,7 @@ When on of the ruby strings is longer than the base character string,
 pick up the ruby string with longer length and place that ruby string 
 following the rules for placement of group-ruby described in 
 [[[#placement-of-group-ruby]]]. 
-When the ruby base character string is consisted with Kana characters 
+When the ruby base character string is consisted with "Japanese characters" 
 defined in 
 [[[#placement-of-group-ruby]]], 
 spacing is inserted between every character in the ruby base character string 
@@ -930,7 +943,7 @@ Following placement of the ruby base character string,
 place the shorter ruby string based on the length of the ruby base character 
 string without spacing at the start and the end, 
 but with inter-character spacing when the ruby base character string is 
-Kana characters. 
+"Japanese characters". 
 </p>
 <p class="checkme">
 When the length of the shorter ruby string is longer than the ruby base 
@@ -952,7 +965,7 @@ follow the rules for placement of group-ruby described in
 [[[#placement-of-group-ruby]]], 
 using the length of the ruby base character string with inter-character 
 spacing. 
-When the shorter ruby string is consisted with Kana characters described in 
+When the shorter ruby string is consisted with "Japanese characters" described in 
 [[[#placement-of-group-ruby]]],
 spacing is inserted between every character in the ruby string 
 as well as the start and the end of the ruby string 
