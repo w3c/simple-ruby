@@ -170,14 +170,13 @@ in order to decide on the position:</p>
       <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
       characters but not to lay over the ruby string preceding 
       or following Kanji characters. 
-      With this method, processing may go smoothly for the case with 
+      This method works well when characters preceding and following 
+      the ruby base are both Kana
       <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
-      characters as both preceding and following of ruby base text, 
-      but there is possible case of unbalanced display, 
-      like a combination of 
+      or both Kanji. 
+      It however can have an unbalanced look when one is 
       <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
-      character as preceding of ruby base text 
-      and Kanji character as following of ruby base text
+      and the other is Kanji and if the ruby string is longer than the ruby base.
       (see <a href="#ruby-protruding-mono"></a> as mono-ruby case, 
       first example takes a rule to lay over the ruby string preceding or
       following 
