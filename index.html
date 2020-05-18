@@ -73,8 +73,9 @@
   Japanese layout. 
   Points took in consideration are described in 
   <a href="#matters-considered-by-the-simple-placement-rules"></a>. 
-  Also layout of dual ruby composition is added in this document which is not 
-  described in [[JLREQ]].
+  Also layout of the double-sided ruby, which has two distinct runs of 
+  ruby text attached to the same ruby base character string, is added in 
+  this document which is not described in [[JLREQ]].
   </p>
 
   <p class="checkme">
@@ -776,13 +777,13 @@ step.
 </section>
 
 <section>
-<h2 id="placement-of-dual-ruby">Placement of dual-ruby</h2>
+<h2 id="placement-of-double-sided-ruby">Placement of Double-Sided Ruby</h2>
 
 <section>
-<h3 id="placement-of-dual-ruby-by-combination-of-type-of-ruby">Placement of dual-ruby by combination of type of ruby</h3>
+<h3 id="placement-of-double-sided-ruby-by-combination-of-type-of-ruby">Placement of Double-Sided Ruby by Combination of Type of Ruby</h3>
 <p class="checkme">
-Quite complexed methods are required on full rules for placement of dual ruby 
-composition. For simple placement of dual-ruby, rules could be written per 
+Quite complexed methods are required on full rules for placement of double-sided ruby 
+composition. For simple placement of double-sided ruby, rules could be written per 
 combinations of mono-ruby, group-ruby, and jukugo-ruby for two sides. 
 As the same as the two-step processing, consideration of the ruby string that 
 extended beyond the ruby base characters with preceding and following 
@@ -790,9 +791,9 @@ characters, and placement at the line head or the line end are processed as
 the same way as when the ruby string is used for one side. 
 </p>
 
-<aside class=note title="Space between adjacent lines and dual-ruby">
+<aside class=note title="Space between adjacent lines and double-sided ruby">
 <span class="checkme">
-When two adjacent rows has dual-ruby, overlap of two ruby strings could happen 
+When two adjacent rows has double-sided ruby, overlap of two ruby strings could happen 
 for configuration of space between lines, which cases should be avoided. 
 Following methods could be applied to avoid these cases:
 </span>
@@ -812,9 +813,9 @@ Following methods could be applied to avoid these cases:
   </li>
   <li>
     <span class="checkme">
-    Place lines with dual-ruby at regions for multiple lines, instead of 
+    Place lines with double-sided rruby at regions for multiple lines, instead of 
     having wider line gaps. 
-    For example, lines with dual-ruby are set at the center of a two line 
+    For example, lines with double-sided ruby are set at the center of a two line 
     space ("center of two line space"). 
     (see <a href="https://www.w3.org/TR/jlreq/#processing_of_gyoudori">JLReq "Processing of Gyou-dori"</a> [[JLREQ]])
     </span>
@@ -855,7 +856,7 @@ Possible combinations of type of ruby are as follows:
 </section>
 
 <section>
-<h3 id="rules-for-placement-of-dual-ruby-per-combinations">Rules for placement of dual-ruby per combinations</h3>
+<h3 id="rules-for-placement-of-double-sided-ruby-per-combinations">Rules for Placement of Double-Sided Ruby per Combinations</h3>
 <p class="checkme">
 In JIS X 4051 [[JISX4051]], first, second, and third cases in above list of 
 combinations are ruled. 
@@ -870,7 +871,7 @@ For the fifth case of jukugo-ruby with group-ruby or jukugo-ruby, the second
 case is applicable with handling jukugo-ruby as group-ruby. 
 </p>
 <p class="checkme">
-In this section, rules for simple placement of dual-ruby on first and second 
+In this section, rules for simple placement of double-sided ruby on first and second 
 cases as follows:
 </p>
 <p class="checkme">
@@ -885,14 +886,14 @@ the contents.
 In a case of combination of mono-ruby and mono-ruby, ruby strings are set 
 solid, and ruby strings are placed so that their center match that of the 
 ruby base character 
-(see <a href="#dual-mono"></a>).
+(see <a href="#double-mono"></a>).
 For other points, follow the same rules for placement of mono-ruby 
 described in [[[#placement-of-mono-ruby]]]. 
 </p>
 
-<figure id=dual-mono>
+<figure id=double-mono>
   <img src="img/fig23.svg" />
-  <figcaption>Dual-ruby example with both mono-ruby</figcaption>
+  <figcaption>Double-sided rruby example with both mono-ruby</figcaption>
 </figure>
 
 </section>
@@ -907,11 +908,11 @@ When the ruby string is consisted with Kana characters defined in
 [[[#placement-of-group-ruby]]], 
 spacing is inserted between every character in the ruby string as well as the 
 start and the end of the ruby string. 
-(see <a href="#dual-group-1"></a>).
+(see <a href="#double-group-1"></a>).
 
-<figure id=dual-group-1>
+<figure id=double-group-1>
   <img src="img/fig24.svg" />
-  <figcaption>Dual-ruby example 1 with both group-ruby</figcaption>
+  <figcaption>Double-sided rruby example 1 with both group-ruby</figcaption>
 </figure>
 
 </p>
@@ -936,11 +937,11 @@ When the length of the shorter ruby string is longer than the ruby base
 character string with inter-character spacing, the shorter ruby string is 
 set solid and ruby string is placed so that its center match that of the 
 ruby base character string 
-(see <a href="#dual-group-2"></a>).
+(see <a href="#double-group-2"></a>).
 
-<figure id=dual-group-2>
+<figure id=double-group-2>
   <img src="img/fig25.svg" />
-  <figcaption>Dual-ruby example 2 with both group-ruby</figcaption>
+  <figcaption>Double-sided ruby example 2 with both group-ruby</figcaption>
 </figure>
 
 </p>
@@ -955,11 +956,11 @@ When the shorter ruby string is consisted with Kana characters described in
 [[[#placement-of-group-ruby]]],
 spacing is inserted between every character in the ruby string 
 as well as the start and the end of the ruby string 
-(see <a href="#dual-group-3"></a>).
+(see <a href="#double-group-3"></a>).
 
-<figure id=dual-group-3>
+<figure id=double-group-3>
   <img src="img/fig26.svg" />
-  <figcaption>Dual-ruby example 3 with both group-ruby</figcaption>
+  <figcaption>Double-sided ruby example 3 with both group-ruby</figcaption>
 </figure>
 
 </p>
