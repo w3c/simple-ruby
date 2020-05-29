@@ -160,14 +160,14 @@ in order to decide on the position:</p>
   <li>What to do when the string of base characters is shorter than the ruby string</li>
   <li>
     <p>When the ruby string protrudes from the base character string,
-    whether it can be allowed to be laid over the characters preceding or following,
+    whether it can be allowed to overhang on the characters preceding or following,
     and whether this affects the position of the base characters</p>
     <aside class=note title="Protrusion of ruby from base characters">
       From principle not to have extra spacing between characters in Japanese composition, 
-      one method of layout is to lay over the ruby string preceding or 
+      one method of layout is to overhang on the ruby string preceding or 
       following 
       <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
-      characters but not to lay over the ruby string preceding 
+      characters but not to overhang on the ruby string preceding 
       or following Kanji characters. 
       This method works well when characters preceding and following 
       the ruby base are both Kana
@@ -177,10 +177,10 @@ in order to decide on the position:</p>
       <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
       and the other is Kanji and if the ruby string is longer than the ruby base.
       (see <a href="#ruby-protruding-mono"></a> as mono-ruby case, 
-      first example takes a rule to lay over the ruby string preceding or
+      first example takes a rule to overhang on the ruby string preceding or
       following 
       <a href="https://www.w3.org/TR/jlreq/#cl-15">Hiragana (cl-15)</a> [[JLREQ]] 
-      characters but not to lay over the ruby string preceding   
+      characters but not to overhang on the ruby string preceding   
       or following Kanji characters.) 
       This is also the same for group-ruby 
       (see <a href="#ruby-protruding-group"></a>). 
@@ -188,12 +188,12 @@ in order to decide on the position:</p>
       each case taken into account. Some publishers placed an additional 
       rule for ruby string in 
       <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a> [[JLREQ]]
-      not to lay over the 
+      not to overhang on the 
       <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a> [[JLREQ]]
       ruby string any of preceding or following character, since ruby string in 
       <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a> [[JLREQ]]
       are considered as a unit. 
-      For such case, a method not to lay over any ruby string could gain 
+      For such case, a method not to overhang any ruby string could gain 
       layout with balanced appearance depends on size of the ruby string 
       (see <a href="#ruby-protruding-group-kana"></a>, second example takes 
       the method). 
@@ -252,7 +252,7 @@ the system to be designed needs to be very complex.</p>
   <li>Ruby is used to display the reading or the meaning of the base characters.
     Therefore, the number one priority here is to avoid misreadings.
     Specifically, the ruby string which protrudes from the base character 
-    string is not allowed to be laid over the characters preceding or 
+    string is not allowed to be overhung by the characters preceding or 
     following, whether it is a Kanji or Kana character. 
 
     <aside class=note title="Protruding over surrounding characters">
@@ -292,7 +292,7 @@ the system to be designed needs to be very complex.</p>
     Also methods described in this document are mostly chosen from ones provided 
     in JIS X 4051 [[JISX4051]]. 
     In some cases, this document picks optional methods to be allowed as 
-    implementation defined, such that protruding ruby string is not laid over 
+    implementation defined, such that protruding ruby string is not overhung on 
     any preceding and following Kana characters. 
     </li>
   <li>
@@ -420,7 +420,7 @@ step.
   <li>
     <p>When the ruby string is longer than the base character string,
     the part of the ruby string that extends beyond the base characters
-    must not hang over the characters preceding or following 
+    must not overhang on the characters preceding or following 
     (see <a href="#mono-ex-1"></a>).
     Spacing is introduced accordingly
     between these preceding or following characters and the base characters.
@@ -433,7 +433,7 @@ step.
     like <a href="https://www.w3.org/TR/jlreq/#cl-06">Full stops (cl-06)</a>
     [[JLREQ]]
     which have spacing before or after the symbols, 
-    the ruby characters do hang over the preceding or following characters
+    the ruby characters do overhang on the preceding or following characters
     (see <a href="#mono-ex-2"></a>).
     (Punctuation marks like 
     <a href="https://www.w3.org/TR/jlreq/#cl-06">Full stops (cl-06)</a> 
@@ -455,14 +455,14 @@ step.
         <a href="https://www.w3.org/TR/jlreq/#cl-07">Commas (cl-07)</a>,
         <a href="https://www.w3.org/TR/jlreq/#cl-14">Full-width ideographic space (cl-14)</a>,
         or <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a> [[JLREQ]],
-        then the ruby must hang over
+        then the ruby must overhang on 
         the blank portion at the end the character.
         (This blank portion is usually half the character’s width,
         except in the case of <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a> [[JLREQ]]
         where it is a fourth of the character width).
         However, if this blank part has been compressed
         due to justification or similar processing of the line,
-        then the ruby may only hang over the resulting
+        then the ruby may only overhang on the resulting
         compressed blank spacing 
         (e.g. if it was reduced from half to a quarter em,
         hang at most a quarter em).</li>
@@ -470,14 +470,14 @@ step.
         <a href="https://www.w3.org/TR/jlreq/#cl-01">Opening brackets (cl-01)</a> or
         <a href="https://www.w3.org/TR/jlreq/#cl-14">Full-width ideographic space (cl-14)</a>,
         <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a> [[JLREQ]],
-        then the ruby must hang over
+        then the ruby must overhang on 
         the blank portion at the start the character.
         (This blank portion is usually
         half the character’s width for <a href="https://www.w3.org/TR/jlreq/#cl-01">Opening brackets (cl-01)</a>,
         or a quarter of the character’s width for <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a> [[JLREQ]])
         However, if this blank part has been compressed
         due to justification or similar processing of the line,
-        then the ruby may only hang over the resulting
+        then the ruby may only overhang on the resulting
         compressed blank spacing 
         (e.g. if it was reduced from half to a quarter em,
         hang at most a quarter em).</li>
@@ -657,7 +657,7 @@ step.
   </li>
   <li>
     <p>When the ruby string is longer than the base character string and protrudes,
-    whether and how it hangs over characters preceding or following
+    whether and how it overhangs on characters preceding or following
     the base character string 
     is handled in the same way as with mono-ruby
     (see <a href="#protruding-group"></a>).
@@ -753,7 +753,7 @@ step.
     </figure>
   </li>
   <li>When the ruby string is longer than the base character string and protrudes,
-    whether and how it hangs over characters preceding or following
+    whether and how it overhangs on characters preceding or following
     the base character string 
     is handled in the same way as with mono-ruby.
     Also, when the ruby string is longer than the base character string,
