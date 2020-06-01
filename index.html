@@ -398,7 +398,7 @@ step.
     <p>When the ruby is made of two or more characters,
     each character in the ruby string is placed
     immediately next to its neighboring character,
-    without any inter-letter spacing.
+    without any inter-character spacing.
     Furthermore, when the ruby is composed of characters such as
     <a href="https://www.w3.org/TR/jlreq/#cl-24">Grouped numerals (cl-24)</a>,
     <a href="https://www.w3.org/TR/jlreq/#cl-25">Unit symbols (cl-25)</a>,
@@ -534,9 +534,9 @@ it is desired to avoid adding spacing between characters for justification.
 The way they are positioned depends
 on how their respective lengths would
 compare if they were each laid out
-without any inter-letter spacing.
+without any inter-character spacing.
 When their respective lengths would be the same,
-both are laid out without inter-letter spacing
+both are laid out without inter-character spacing
 and placed such that their respective centers in the inline direction are aligned
 (see <a href="#group-ruby"></a>).
 For other cases, the placement depends on the following:
@@ -546,18 +546,18 @@ For other cases, the placement depends on the following:
   <figcaption>Example 1 of group-ruby</figcaption>
 </figure>
 
-<aside class=note title="Inter-letter spacing in group-ruby" id="n20200529005">
+<aside class=note title="Inter-character spacing in group-ruby" id="n20200529005">
 In the case of group-ruby, it is desired to align the length of ruby string 
 and the length of ruby base character string, but these lengths could differ 
 by numbers of characters. To compensate their difference, adding spacing 
-to preceding, following, and inter-letter of ruby string or ruby base 
+to preceding, following, and inter-character of ruby string or ruby base 
 character string is used for "Japanese characters". 
 Adding spacing by a ratio of 1 to preceding and following, and 2 to 
-inter-letter was noted as a method to make well balanced layout in letterpress 
+inter-character was noted as a method to make well balanced layout in letterpress 
 printing, and is used in following method. 
 In contrast, for Western characters, this document focuses on keeping clusters of 
 Western characters rather than alignment of lengths, and does not take 
-a method to have inter-letter spacing. 
+a method to have inter-character spacing. 
 </aside>
 
 <p>
@@ -628,7 +628,7 @@ step.
         The size of the spacing inserted between each of the ruby characters
         is twice the size of the spacing inserted at the end and at the start.</li>
       <li id="l20200529030">When the ruby string is longer than the base character string,
-        both are laid out without inter-letter spacing
+        both are laid out without inter-character spacing
         and placed such that their respective centers in the inline direction are aligned.
         In this case, the ruby string protrudes from the base character string.</li>
     </ul>
@@ -644,7 +644,7 @@ step.
     the placement depends on the following (see <a href="#ruby-west"></a>):</p>
     <ul>
       <li id="l20200529032">When the ruby string is shorter than the base character string,
-        both are laid out without inter-letter spacing
+        both are laid out without inter-character spacing
         and placed such that their respective centers in the inline direction are aligned.</li>
       <li id="l20200529033">When the ruby string is longer than the base character string,
         spacing is inserted between every character in the base character string
@@ -701,7 +701,7 @@ step.
 <ol>
   <li id="l20200529036">
     <p>With jukugo-ruby, each base character is associated with its own ruby string.
-    When the length of each of these ruby string laid out without inter-letter spacing
+    When the length of each of these ruby string laid out without inter-character spacing
     is shorter than the length of all their corresponding base characters,
     placement is determined as follows:</p>
 
@@ -716,7 +716,7 @@ step.
         </figure>
       </li>
       <li id="l20200529038">When the ruby string associated with an individual base character is 2 characters long or more,
-        the ruby string is laid out without inter-letter spacing,
+        the ruby string is laid out without inter-character spacing,
         and placed such that its center and the center of its base character are aligned in the inline direction
         (see <a href=#jukugo-1></a>).
       </li>
@@ -725,7 +725,7 @@ step.
   <li id="l20200529039">
     <p>For simple ruby implementations,
 	if even a single ruby string is longer than its corresponding base character
-    when laid out without inter-letter spacing,
+    when laid out without inter-character spacing,
     the resulting layout would look identical to group-ruby
     (see <a href=#jukugo-2></a> and <a href=#jukugo-3></a>).
     <figure id=jukugo-2>
