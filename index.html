@@ -717,15 +717,14 @@ suitable. Using the third method in an area with an integral number of line spac
 </section>
 
 <section>
-<h3 id="combination-of-type-of-ruby">Combinations of  ruby types</h3>
-<p>
-Possible combinations of type of ruby are as follows: 
+<h3 id="combination-of-type-of-ruby">Double-sided ruby combinations</h3>
+<p>Double-sided ruby can be classified into five   combinations:
 <ol>
-  <li id="l20200529046">Mono-ruby and mono-ruby</li>
-  <li id="l20200529047">Group-ruby and group-ruby</li>
-  <li id="l20200529048">Mono-ruby and group-ruby</li>
-  <li id="l20200529049">Mono-ruby and jukugo-ruby</li>
-  <li id="l20200529050">Jukugo-ruby with group-ruby or jukugo-ruby</li>
+  <li id="l20200529046">mono-ruby and mono-ruby</li>
+  <li id="l20200529047">group-ruby and group-ruby</li>
+  <li id="l20200529048">mono-ruby and group-ruby</li>
+  <li id="l20200529049">mono-ruby and jukugo-ruby</li>
+  <li id="l20200529050">jukugo-ruby with group-ruby or jukugo-ruby</li>
 </ol>
 </p>
 </section>
@@ -733,15 +732,11 @@ Possible combinations of type of ruby are as follows:
 <section>
 <h3 id="rules-for-placement-of-double-sided-ruby-per-combinations">Combinations of ruby types and placement methods</h3>
 <p>
-[[JISX4051]] only specifies arrangement methods for  combinations (1), (2), and (3) in the previous section (see a <a href="https://www.w3.org/TR/jlreq/#n104">note in JLReq</a>). 
-Since (3) is a process that treats continuous mono-ruby items as one group ruby,  the actual arrangement method is (2).</p>
+[[JISX4051]] provides procedures for handling (1), (2), and (3)  (see a <a href="https://www.w3.org/TR/jlreq/#n104">note in JLReq</a>). 
+But (3) is actually handled as (2) by first concatenating mono-ruby strings to form a single group-ruby.</p>
+<p>We propose to handle (4) as (1) by first converting jukugo-ruby to mono-ruby, and to handle (5) as (2) by first converting jukugo-ruby to group-ruby.</p>
 <p>
-For  the case of combining mono-ruby and jukugo-ruby in (4),  case (1) can be adopted if the combination of the individual kanji forming the jukugo of the jukugo-ruby and the corresponding ruby annotations are treated as one mono-ruby.
-For  case (5), jukugo-ruby with group-ruby or jukugo-ruby,   
-case (2) is applicable when handling jukugo-ruby as group-ruby. 
-</p>
-<p>
-In this section, rules for simple placement of double-sided ruby using cases (1) and (2) are  explained.</p>
+This document, therefore, provides rules for simple placement of double-sided ruby using cases (1) and (2).</p>
 <p>Which side the ruby annotations should be placed depends on the specification.</p>
 </section>
 
@@ -749,7 +744,7 @@ In this section, rules for simple placement of double-sided ruby using cases (1)
 <h3 id="placement-of-combination-of-mono-ruby-and-mono-ruby">Placement of the combination mono-ruby and mono-ruby</h3>
 <p>
 In the combination  mono-ruby plus mono-ruby, ruby annotations are set 
-solid, and ruby annotations are placed so that their center aligns with that of the 
+solid, and  are placed so that their center aligns with that of the 
 ruby base text (see [[[#double-mono]]]).
 For other points, follow the  rules for placement of mono-ruby 
 described in [[[#placement-of-mono-ruby]]]. 
@@ -781,14 +776,14 @@ start and the end of the ruby string (see [[[#double-group-1]]]).
 </p>
 <p>
 When one of the ruby annotations is wider than its base text, 
-pick up the ruby annotations with longer length and place that ruby annotations 
+pick up the ruby annotation with longer length and place that ruby annotation 
 following the rules for placement of group-ruby, as described in 
 [[[#placement-of-group-ruby]]]. 
 When the ruby base text consists of <a title="japanese characters">Japanese characters</a>, as 
 defined in 
 [[[#placement-of-group-ruby]]], 
 spacing is inserted between every character in the ruby base text 
-as well as the start and the end of the ruby base text. 
+as well as at the start and the end of the ruby base text. 
 Following placement of the ruby base text, 
 place the shorter ruby annotations based on the length of the ruby base text without spacing at the start and the end 
 but with inter-character spacing when the ruby base text is 
@@ -797,7 +792,7 @@ but with inter-character spacing when the ruby base text is
 <p>
 When the width of the shorter ruby annotation is longer than its ruby base 
 text with inter-character spacing, the shorter ruby annotation is 
-set solid and the ruby annotations is placed so that its center matches that of its base text (see [[[#double-group-2]]]).</p>
+set solid and  is placed so that its center matches that of its base text (see [[[#double-group-2]]]).</p>
 
 
 <figure id="double-group-2">
