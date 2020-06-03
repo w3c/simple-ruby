@@ -104,7 +104,7 @@ for more information.)</p>
   that can be used for Japanese layout realized with technologies like CSS, SVG, and XML-FO. 
   Unlike 
   <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a>
-  [[JLREQ]], in this document only one layout method is presented for each alternative, taking into consideration best practices and important points related to Japanese layout. The points taken into consideration are described in [[[#matters-considered-by-the-simple-placement-rules]]], In addition, this document provides recommendations for double-sided ruby, where two distinct runs of ruby text are attached to the same ruby base (this is not described in  [[JLREQ]].</p>
+  [[JLREQ]], in this document only one layout method is presented for each alternative, taking into consideration best practices and important points related to Japanese layout. The points taken into consideration are described in [[[#matters-considered-by-the-simple-placement-rules]]]. In addition, this document provides recommendations for double-sided ruby, where two distinct runs of ruby text are attached to the same ruby base (this is not described in  [[JLREQ]].</p>
 <p>[[JLREQ]]  is largely a record of Japanese layout as established for the printing industry. It explains multiple ways to achieve one thing, 
 and sometimes these approaches can be very complex. Ruby is one such case. There are so many factors to consider, and often  contradictory requirements (see <a href="#n20200529002">some examples</a>), leading to a complexity that makes it challenging to automate ruby.  </p>
 <p>
@@ -152,7 +152,7 @@ in order to decide on the position:</p>
 	
 	
 <aside class="note" title="Ruby annotations that are wider than the base text" id="n20200529002">
-<p>Since Japanese composition seeks to avoid space between characters as much as possible, ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, but often <em>are</em> allowed to overhang neighboring kana. 
+<p>Since Japanese composition seeks to avoid spacing between characters as much as possible, ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, but often <em>are</em> allowed to overhang neighboring kana. 
       This method works well when characters preceding and following 
       the ruby base are both kana
       or both kanji. 
@@ -239,7 +239,7 @@ the system to be designed needs to be very complex.</p>
   <li id="l20200529009">Processing is done in two steps. 
     In the first step, processing of layout only considers  the relative positions of the ruby 
     annotation and its base text (we refer to these, collectively, in this document as the ruby-block). 
-    In the second step  layout processing decides the position of the ruby 
+    In the second step,  layout processing decides the position of the ruby 
     base text in the line, taking into consideration the preceding and 
     following characters.
     In other words, the relative positions of the ruby annotation and its base text as decided in the first step are not modified 
@@ -819,7 +819,7 @@ as well as at the start and the end of the ruby annotations (see [[[#double-grou
 
 
 <p>
-For other points, follow the same rules as for the placement of mono-ruby 
+For other points, follow the same rules as for the placement of group-ruby 
 described in [[[#placement-of-group-ruby]]]. 
 </p>
 </section>
