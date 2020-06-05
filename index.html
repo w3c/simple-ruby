@@ -117,11 +117,11 @@ but one that is suitable for automatic processing. In such cases, rather than id
 
 
 <section>
-<h2 id="matters-considered-by-the-simple-placement-rules">Matters considered by the simple placement rules</h2>
+<h2 id="matters-considered-by-the-simple-placement-rules">Considerations for the  placement rules</h2>
 
 
 <section>
-<h3 id="the-difficulties-of-ruby-processing">The Difficulties of Ruby Processing</h3>
+<h3 id="the-difficulties-of-ruby-processing">The difficulties of ruby processing</h3>
 
 <p>When performing ruby layout in Japanese,
 the following factors need to be considered
@@ -195,14 +195,16 @@ the system to be designed needs to be very complex.</p>
 
 
 <section>
-<h3 id="matters-considered-by-the-placement-rules">Matters considered by the placement rules</h3>
+<h3 id="matters-considered-by-the-placement-rules">Considerations for  simple placement rules</h3>
 
-<p>Here are the fundamental assumptions underlying the simple placement rules.</p>
+<p>Here are the fundamental assumptions underlying the simple placement rules.  In this document we refer to the ruby 
+annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
 <ol>
-<li id="l20200529007"><p>Ruby is used to display the reading or the meaning of the base characters.
+<li id="l20200529007">
+<p>Ruby is used to display the reading or the meaning of the base characters.
     Therefore, the number one priority here is to avoid misreadings.
     Specifically, this method does not allow a ruby annotation which is wider than its base text to overhang the characters preceding or 
-    following, whether they are kanji or kana characters.</p>
+    following the <a title="ruby block">ruby block</a>, whether they are kanji or kana characters.</p>
 	
 <aside class="note" title="Overhanging surrounding characters" id="n20200529003"> The main placement method defined in [[JISX4051]]
       allows some amount of overhang over the preceding and following base characters,
@@ -214,13 +216,11 @@ the system to be designed needs to be very complex.</p>
     string are aligned in the inline direction for mono-ruby.</li>
 <li id="l20200529009">Processing is done in two steps. 
     In the first step, processing of layout only considers  the relative positions of the ruby 
-    annotation and its base text (we refer to these, collectively, in this document as the ruby-block). 
-    In the second step,  layout processing decides the position of the ruby 
-    base text in the line, taking into consideration the preceding and 
-    following characters.
-    In other words, the relative positions of the ruby annotation and its base text as decided in the first step are not modified 
-    in the light of any preceding and following characters. 
-    Also, when the base text is placed at 
+    annotation and its base text. 
+    In the second step,  layout processing decides the position of the <a title="ruby block">ruby block</a> in the line, taking into consideration the preceding and 
+    following characters. On the other hand, relative positions of the ruby annotation and its base text as decided in the first step are not modified 
+    in the light of any characters preceding and following the ruby block. 
+    Also, when the ruby block is placed at 
     the line head or the line end the method used in this document does not align the first or last 
     character of the base text to the line head or the line 
     end by modifying the relative positions of the ruby annotation and its base text. 
