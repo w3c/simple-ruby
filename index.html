@@ -97,7 +97,7 @@ for more information.)</p>
   Unlike <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a> [[JLREQ]], in this document only one layout method is presented for each alternative, taking into consideration best practices and important points related to Japanese layout. The points taken into consideration are described in [[[#matters-considered-by-the-simple-placement-rules]]]. In addition, this document provides recommendations for double-sided ruby, where two distinct runs of ruby text are attached to the same ruby base (this is not described in  [[JLREQ]].</p>
 <p>[[JLREQ]]  is largely a record of Japanese layout as established for the printing industry. It explains multiple ways to achieve one thing, 
 and sometimes these approaches can be very complex. Ruby is one such case. There are so many factors to consider, and often  contradictory requirements (see <a href="#n20200529002">some examples</a>), leading to a complexity that makes it challenging to automate ruby fully, per JLReq. </p>
-<p>It   would therefore be beneficial to outline a method that is that is adequate for automatic processing of ruby in general, but which is paired down to be simple and robust. In such cases, rather than ideal positioning, we must at least make sure that the positioning causes no misunderstanding. </p>
+<p>It   would therefore be beneficial to outline a method that is adequate for automatic processing of ruby in general, but which is paired down to be simple and robust. In such cases, rather than ideal positioning, we must at least make sure that the positioning causes no misunderstanding. </p>
 <p>The following is a proposal for just such a simple processing system. The target audience is implementers and specification writers.
   It is expected that a full system may be more complex that what is described here,
   both due to the interaction with other features or other writing systems,
@@ -214,7 +214,7 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
     In the first step, processing of layout only considers  the relative positions of the ruby 
     annotation and its base text. 
     In the second step,  layout processing decides the position of the <a title="ruby block">ruby block</a> in the line, taking into consideration the preceding and 
-    following characters. Note that relative positions of the ruby annotation and its base text as decided in the first step are not modified 
+    following characters. In other words relative positions of the ruby annotation and its base text as decided in the first step are not modified 
     in  light of any characters preceding and following the ruby block. 
     Also, when the ruby block is placed at 
     the line head or the line end the method used in this document does not align the first or last 
