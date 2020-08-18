@@ -96,9 +96,8 @@ for more information.)</p>
   that can be used for Japanese layout realized with technologies like CSS, SVG, and XML-FO. 
   Unlike <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a> [[JLREQ]], in this document only one layout method is presented for each alternative, taking into consideration best practices and important points related to Japanese layout. The points taken into consideration are described in [[[#matters-considered-by-the-simple-placement-rules]]]. In addition, this document provides recommendations for double-sided ruby, where two distinct runs of ruby text are attached to the same ruby base (this is not described in  [[JLREQ]].</p>
 <p>[[JLREQ]]  is largely a record of Japanese layout as established for the printing industry. It explains multiple ways to achieve one thing, 
-and sometimes these approaches can be very complex. Ruby is one such case. There are so many factors to consider, and often  contradictory requirements (see <a href="#n20200529002">some examples</a>), leading to a complexity that makes it challenging to automate ruby. </p>
-<p>It  seems it would be beneficial to come up with a method that is simple and robust, 
-but one that is suitable for automatic processing. In such cases, rather than ideal positioning, we must at least make sure that the positioning causes no misunderstanding. </p>
+and sometimes these approaches can be very complex. Ruby is one such case. There are so many factors to consider, and often  contradictory requirements (see <a href="#n20200529002">some examples</a>), leading to a complexity that makes it challenging to automate ruby fully, per JLReq. </p>
+<p>It   would therefore be beneficial to outline a method that is adequate for automatic processing of ruby in general, but which is paired down to be simple and robust. In such cases, rather than ideal positioning, we must at least make sure that the positioning causes no misunderstanding. </p>
 <p>The following is a proposal for just such a simple processing system. The target audience is implementers and specification writers.
   It is expected that a full system may be more complex that what is described here,
   both due to the interaction with other features or other writing systems,
@@ -166,19 +165,18 @@ in order to decide on the placement:</p>
 <li id="l20200529005"><p>When the ruby annotation is wider than its base text
     and the base text is at the start or the end of the line,
     whether the base text or the ruby annotation should be aligned with the line edge.</p>
-	</li>
+</li>
 <li id="l20200529006">
 <p>When there are multiple base characters,
     whether there can be a line wrap opportunity between them.</p>
 </li>
 </ol>
-<p>In movable type typography,
+<p>Designing a system based on movable typesetting is very complex, considering all the possibilities that existed. In movable type typography,
 such matters were resolved based on generic principles,
-and could always be corrected during the proofreading phase.
-Essentially, each case was adjusted individually in a flexible manner.</p>
+but could always be corrected during the proofreading phase.
+Essentially, each case was adjusted individually in a flexible manner. </p>
 <p>In computer-based typesetting,
-the layout needs to be more or less determined based on predetermined rules,
-but it remains necessary to adjust the results in certain cases,
+the layout needs to be more or less determined based on predetermined rules. However, it remains necessary to allow for adjustment of the results in certain cases,
 for example by changing the association between base text
 and the ruby annotation,
 or by switching to a different placement policy.</p>
@@ -187,9 +185,7 @@ it is not practical to decide on the positioning
 case by case as was done in movable type typography.
 It is therefore necessary to decide upon comprehensive rules
 that provide solutions to all the problems listed above,
-so that placement may be determined fully automatically.
-Considering all the possibilities that existed in movable type typesetting,
-the system to be designed needs to be very complex.</p>
+so that placement may be determined fully automatically.</p>
 </section>
 
 
@@ -218,8 +214,8 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
     In the first step, processing of layout only considers  the relative positions of the ruby 
     annotation and its base text. 
     In the second step,  layout processing decides the position of the <a title="ruby block">ruby block</a> in the line, taking into consideration the preceding and 
-    following characters. On the other hand, relative positions of the ruby annotation and its base text as decided in the first step are not modified 
-    in the light of any characters preceding and following the ruby block. 
+    following characters. In other words relative positions of the ruby annotation and its base text as decided in the first step are not modified 
+    in  light of any characters preceding and following the ruby block. 
     Also, when the ruby block is placed at 
     the line head or the line end the method used in this document does not align the first or last 
     character of the base text to the line head or the line 
@@ -227,9 +223,9 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
     To summarise, the relative positions decided in the first step are not 
     modified by the second step at all.</li>
 <li id="l20200529010">Although there are cases where  [[JLREQ]] 
-    and [[JISX4051]] list multiple ways of positioning ruby, this document only describes one method based on 
+    and [[JISX4051]] list multiple ways of positioning ruby, this document only describes one method, based on 
     the policies described above. 
-    Also methods described in this document are mostly chosen from those provided 
+    Also, methods described in this document are mostly chosen from those provided 
     in [[JISX4051]]. 
     In some cases, this document suggests optional methods to be allowed as 
     implementation defined, such as that a ruby annotation  wider than its base text should not overhang any preceding or following kana characters.</li>
@@ -288,13 +284,13 @@ Each is used when specified.</p>
 <section>
 <h3 id="ruby-character-size-and-character-placement">Ruby character size and character placement</h3>
 
-<p>The size of the ruby characters
+<p>The size of the ruby annotation characters
 and their placement in the inline direction relative to the base characters is as follows:</p>
 <ol>
-<li id="l20200529015">The size of the ruby is by default set to
+<li id="l20200529015">The size of the ruby annotation is by default set to
     half of the size of the base characters.</li>
-<li id="l20200529016">In vertical text, ruby is placed to the right of the base characters,
-    and the character frame of the ruby is placed flush
+<li id="l20200529016">In vertical text, ruby annotation is placed to the right of the base characters,
+    and the character frame of the ruby annotation is placed flush
     against the character frame of the base characters.
 	
 <figure>
@@ -302,8 +298,8 @@ and their placement in the inline direction relative to the base characters is a
 <figcaption>Example of vertical ruby.</figcaption>
 </figure>
 </li>
-<li id="l20200529017">In horizontal text, ruby is placed to the top of the base characters,
-    and the character frame of the ruby is placed flush
+<li id="l20200529017">In horizontal text, ruby annotation is placed to the top of the base characters,
+    and the character frame of the ruby annotation is placed flush
     against the character frame of the base characters.
 	
 <figure>
@@ -324,8 +320,6 @@ it is explained last.</p>
 
 <section>
 <h3 id="placement-of-mono-ruby">Placement of mono-ruby</h3>
-
-<p>Mono-ruby is placed as follows.</p>
 <p>To align the following items to the <a href="#l20200529009">two-step processing method</a> described in [[[#matters-considered-by-the-placement-rules]]], 
 points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the second.</p>
 <ol>
@@ -492,7 +486,7 @@ Western characters together rather than aligning lengths, and uses no method for
         as well as at the start and the end of the base text so that it becomes the same length as the ruby annotation,
         then their centers in the inline direction are aligned.
         The size of the spacing inserted between each of the base characters
-        is twice the size of the spacng inserted at the end and at the start
+        is twice the size of the spacing inserted at the end and at the start
         (see [[[#group-4]]]).</p>
 <figure id="group-4"> <img src="img/fig15.svg" alt="" style="min-width: 22em;" />
 <figcaption>Example 4 of group-ruby.</figcaption>
@@ -575,13 +569,11 @@ Western characters together rather than aligning lengths, and uses no method for
 
 <section>
 <h3 id="placement-of-jukugo-ruby">Placement of Jukugo-ruby</h3>
-
-<p>Jukugo-ruby is placed as follows.</p>
-<p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first step, and (4) and (5) to the second.</p>
+<p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first step, and (4)  to the second.</p>
 <ol>
 <li id="l20200529036">
 <p>With jukugo-ruby, each base text is associated with its own ruby annotation.
-    When the length of each of these ruby annotations laid out without inter-character spacing
+    When the length of all of these ruby annotations laid out without inter-character spacing
     is less wide than the length of all their corresponding base texts,
     placement is determined as follows:</p>
 <ul>
