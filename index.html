@@ -270,7 +270,19 @@ Mono-ruby is used to connect ruby to a single base character,
 Jukugo-ruby is used when multiple base characters each have a corresponding ruby
 and at the same time the whole group needs to be processed together,
 and group-ruby is used when ruby is attached to a group of base characters together (see <a href="#ruby-types"></a>).
-Each is used when specified.</p>
+Mono-ruby is defined to have a single character as its ruby base, it is clear to tell as Mono-ruby 
+when <a title="ruby block">ruby block</a> has a single character as its ruby base. 
+But, there is no clear boundary on handling between Group-ruby and Jukugo-ruby, both of whose ruby base contains multiple characters. 
+In this document, 
+a <a title="ruby block">ruby block</a> with only one group of ruby annotation and ruby base consisted of multiple characters is handled as Group-ruby, 
+and a <a title="ruby block">ruby block</a>, 
+whose ruby base is consisted of multiple characters and individual ruby annotation is assigned to each characrets as its ruby base, 
+is handled as Jukugo-ruby. 
+Also in this document, even for Jukugo, without assigning a whole Jukugo as one <a title="ruby block">ruby block</a>,
+a run of Jukugo is handled as multiple Mono-ruby blocks when ruby annotations are associated to their ruby base consisted of a single character, 
+or is handled as a Group-ruby when ruby annotations are associated only to ruby bases consisted of multiple characters 
+without associations to ruby base consisted of a single character. 
+</p>
 </section>
 </section>
 
@@ -319,6 +331,7 @@ it is explained last.</p>
 
 <section>
 <h3 id="placement-of-mono-ruby">Placement of mono-ruby</h3>
+<p>Mono-ruby is used to connect ruby annotation to a ruby base consisted of a single character.</p>
 <p>To align the following items to the <a href="#l20200529009">two-step processing method</a> described in [[[#matters-considered-by-the-placement-rules]]], 
 points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the second.</p>
 <ol>
