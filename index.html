@@ -795,10 +795,11 @@ In this document, option 1 is picked. Characters of the ruby annotation are set 
   <li id="l20211116002">The beginning of the ruby annotation and of its base text are aligned in the inline direction.</li>
   <li id="l20211116003">In principle, the beginning of the ruby annotation and of its base text are aligned in the inline direction.
     If the ruby annotation is wider than its base text, 
-    follow <a href="#l20211116033">option 3</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
+    follow <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
     The results may depend on the character class of characters preceding and following.</li>
 </ol>
-<p>In some cases, option 2 may be picked for every <a title="ruby block">ruby blocks</a> at line edge.
+<p>In some cases, for every <a title="ruby block">ruby blocks</a> at line edge, 
+alignments follow <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] regardless which option listed above is picked.
 Alignment between ruby annotation and base text may differ in this case.</p>
 </section>
 
@@ -830,9 +831,11 @@ options 2 and 3 are not picked in this document.</p>
   <li id="l20211116022">Place each pair of ruby annotation and base text as Mono-ruby.</li>
   <li id="l20211116023">Place whole Jukugo-ruby block as one Group-ruby.</li>
   <li id="l20211116024">For ruby annotations in Jukugo-ruby which are wider than their base text, allow to overhang surrounding kanji by
-    1/2 of the character size of the base text, following <a href="#l20211116033">option 3</a> in [[[#overhang-surrounding-characters]]].
-    Other minor rules are applied depends on its situations, and alignment between ruby annotation and base text may differ 
-    depends on surrounding characters.</li>
+    1/2 of the character size of the base text, following <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] 
+    with following direction as prioritized.
+    For <a title="ruby block">ruby block</a> at line edge, 
+    <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] is used in most cases. 
+    Alignment between ruby annotation and base text may differ depends on surrounding characters or line edge.</li>
 </ol>
 </section>
 
@@ -858,7 +861,7 @@ in <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>.</p>
 </section>
 
 <section>
-<h3 id="">Alignment at line edge</h3>
+<h3 id="alignment-at-line-edge">Alignment at line edge</h3>
 <p>When the ruby annotation is wider than its base text, and the ruby block falls at line edge,
 following two methods are mainly used for alignment at line edge.
 In this document, option 1 is picked.
