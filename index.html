@@ -209,7 +209,7 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
     and will use the same logic in either case.
     Specifically, the center of the ruby string and of the base character 
     string are aligned in the inline direction for mono-ruby.</li>
-<li id="l20200529009">Processing is done in two steps. 
+<li id="l20200529009"><p>Processing is done in two steps. 
     In the first step, processing of layout only considers  the relative positions of the ruby 
     annotation and its base text. 
     In the second step,  layout processing decides the position of the <a title="ruby block">ruby block</a> in the line, taking into consideration the preceding and 
@@ -220,7 +220,19 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
     character of the base text to the line head or the line 
     end by modifying the relative positions of the ruby annotation and its base text. 
     To summarise, the relative positions decided in the first step are not 
-    modified by the second step at all.</li>
+    modified by the second step at all.</p>
+<aside class="note" title="Line breake and two-step processing for Jukugo-ruby" id="n20211124001">
+Line breaks are allowed inside Jukugo-ruby. 
+When line breaks are inserted inside Jukugo-ruby, 
+relative positions of the ruby annotation and its base text are changed compaired to ones before line breaks inserted. 
+For example, Jukugo-ruby whose base text is consisted of three characters, 
+three cases are possible with considering line breaks, three characters as one block, two blocks with one character and following two characters, 
+and two blocks with two characters and following one character. 
+For all of three cases, 
+relative positions of the ruby annotation and its base text are decided within each block without any relationship to surrounding characters. 
+Therefore, two-step processing method is applicable for Jukugo-ruby after line breaks inserted. 
+</aside>
+</li>
 <li id="l20200529010">Although there are cases where  [[JLREQ]] 
     and [[JISX4051]] list multiple ways of positioning ruby, this document only describes one method, based on 
     the policies described above. 
