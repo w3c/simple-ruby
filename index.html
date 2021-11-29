@@ -134,13 +134,14 @@ in order to decide on the placement:</p>
     and whether this affects the position of the base text.</p>
 
 <aside class="note" title="Examples of placements for ruby block which involves complex rules" id="n20200529002">
-<p>Since Japanese composition seeks to avoid spacing between characters as much as possible (see also JLReq <a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">section "Principles of Arrangement of Kanji and Kana Characters"</a>), ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, but often <em>are</em> allowed to overhang neighboring kana. 
-      This method works well when characters preceding and following 
-      the ruby base are both kana
-      or both kanji. 
-      However, depending on the number of ruby characters, it can lead to an unbalanced look when kana is on one side and kanji is on the other.
-      ([[[#ruby-overhang-mono]]] shows examples of mono-ruby, one where the ruby annotation overhangs, and another where it doesn't overhang  the kanji.)</p>
-	  
+<p>Since Japanese composition seeks to avoid spacing between characters as much as possible (see also JLReq <a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">section "Principles of Arrangement of Kanji and Kana Characters"</a>), 
+ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, 
+but are allowed to overhang neighboring kana in some placement rules.
+Such rules could work nicely when preceding and following characters are both kana or both kanji, 
+but it can lead to an unbalanced look depends on a number of characters of ruby annotation 
+in cases like kana as preceding character and kanji as following character. 
+([[[#ruby-overhang-mono]]] shows examples of mono-ruby, one where the ruby annotation overhangs the kana, and another where it doesn't overhang.)</p>
+
 <figure id="ruby-overhang-mono"> <img src="img/fig01.svg" style="width:20%; min-width: 10em;"/>
 <figcaption>Mono-ruby preceded by a kana character and followed by a kanji character, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
@@ -151,14 +152,20 @@ in order to decide on the placement:</p>
 <figcaption>Group-ruby  preceded by a kana character and followed by a kanji character, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
 
-<p>In letterpress printing,   ruby annotation layouts were adjusted on an individual basis. Some publishers had an additional 
-      rule disallowing overhang of adjacent kana text by katakana annotations, since katakana words can be considered a separate unit. 
-      For such cases, depending on the length of the ruby annotation, it would produce better balance to disallow overhanging of kana characters 
-      (see [[[#ruby-overhang-group-kana]]], where the second example applies this method).</p>
-	  
+<p>To produce better balance on above cases, additional rules are required. 
+(In letterpress printing, ruby annotation layouts were adjusted to produce better balance on an individual basis.)
+In some cases, an additional rule is added to disallow overhang of adjacent kana text when characters of ruby annotation are katakana, 
+since katakana words can be considered a separate unit. 
+(In fact, it would produce better balance to disallow overhang of adjacent kana depnds on a number of characters of ruby annotation. 
+See [[[#ruby-overhang-group-kana]]], where the second example applies this method.)
+Additional rule is also required for this point.</p>
+
 <figure id="ruby-overhang-group-kana"> <img src="img/fig03.svg"  alt="" style="width:25%; min-width: 15em;" />
 <figcaption>Group-ruby preceded and followed by kana characters, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
+
+<p>Applying one simple rule to disallow overhang of adjacent any character including preceding or following kana works 
+to prevent these complexity, although this rule breaks a condition to avoid spacing between characters as much as possible.</p>
 </aside>
 </li>
 <li id="l20200529005"><p>When the ruby annotation is wider than its base text
