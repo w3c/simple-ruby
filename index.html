@@ -445,7 +445,7 @@ both are laid out without inter-character spacing
 and placed such that their respective centers are aligned in the inline direction
 (see [[[#group-ruby]]]).
 For other cases, the placement depends on the following.</p>
-<p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first step, and (4) and (5) to the second.</p>
+<p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2), (3) and (4) belong to the first step, and (5) to the second.</p>
 
 <aside class="note" title="Inter-character spacing in group-ruby" id="n20200529005">For group-ruby, it is preferred for the length of ruby annotation and the length of its base text to be aligned, but the lengths may differ 
 by a number of characters. When the annotation is composed of <a title="japanese characters">Japanese characters</a>, to compensate for the difference,  space is added before, after, and between the characters of the ruby annotation, or those of the base 
@@ -544,6 +544,22 @@ Western characters together rather than aligning lengths, and uses no method for
         is twice the size of the spacing inserted at the end and at the start.</li>
 </ul>
 </li>
+<li id="l20200529035">
+<p>In the case of <a title="group-ruby">group-ruby</a>,
+    the base text and its associated ruby annotation
+    are treated as a unit, 
+    so there is no line wrapping opportunity inside either string.</p>
+        
+<aside class="note" title="Wrap opportunities in group-ruby" id="n20200529006">
+<p>As group-ruby is treated as a single unit, there is no wrap opportunity.
+    However, there are examples where allowing wrapping may be desirable.
+    In such cases, based on appropriate association of base text and ruby annotations, it may be appropriate to handle the wrapping opportunities in the same way as for jukugo-ruby.</p>
+<figure id="wrap-group">
+<img src="img/fig18.svg" alt="" style="min-width: 25em;" />
+<figcaption>Wrapping group-ruby.</figcaption>
+</figure>
+</aside>
+</li>
 <li id="l20200529034">
 <p>When the ruby annotation is wider than its base text and extends beyond it,
     whether and how it hangs over characters preceding or following
@@ -556,22 +572,6 @@ Western characters together rather than aligning lengths, and uses no method for
 <img src="img/fig17.svg" alt="" style="min-width: 14em;" />
 <figcaption>Example of  group-ruby where the ruby annotation is wider than its base text.</figcaption>
 </figure>
-</li>
-<li id="l20200529035">
-<p>In the case of <a title="group-ruby">group-ruby</a>,
-    the base text and its associated ruby annotation
-    are treated as a unit, 
-    so there is no line wrapping opportunity inside either string.</p>
-	
-<aside class="note" title="Wrap opportunities in group-ruby" id="n20200529006">
-<p>As group-ruby is treated as a single unit, there is no wrap opportunity.
-      However, there are examples where allowing wrapping may be desirable.
-      In such cases, based on appropriate association of base text and ruby annotations, it may be appropriate to handle the wrapping opportunities in the same way as for jukugo-ruby.</p>
-<figure id="wrap-group">
-<img src="img/fig18.svg" alt="" style="min-width: 25em;" />
-<figcaption>Wrapping group-ruby.</figcaption>
-</figure>
-</aside>
 </li>
 </ol>
 </section>
