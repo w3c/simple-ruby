@@ -550,10 +550,14 @@ Western characters together rather than aligning lengths, and uses no method for
     are treated as a unit, 
     so there is no line wrapping opportunity inside either string.</p>
 	
-<aside class="note" title="Wrap opportunities in group-ruby" id="n20200529006">
-<p>As group-ruby is treated as a single unit, there is no wrap opportunity.
-      However, there are examples where allowing wrapping may be desirable.
-      In such cases, based on appropriate association of base text and ruby annotations, it may be appropriate to handle the wrapping opportunities in the same way as for jukugo-ruby.</p>
+<aside class="note" title="Line wrapping in group-ruby" id="n20200529006">
+<p>As <a title="group-ruby">group-ruby</a> is treated as a single unit, there is no wrap opportunity. 
+However, in letterpress printing, there are cases to introduce line wrapping within <a title="group-ruby">group-ruby</a> 
+in cases like compound words, 
+since there were cases to make extream placement results by line alignment. 
+Considering this, it is desired to allow line wrapping in <a title="group-ruby">group-ruby</a> 
+with considering combinations of characters of ruby annotation and base text. 
+</p>
 <figure id="wrap-group">
 <img src="img/fig18.svg" alt="" style="min-width: 25em;" />
 <figcaption>Wrapping group-ruby.</figcaption>
