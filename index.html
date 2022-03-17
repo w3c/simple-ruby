@@ -61,10 +61,10 @@
 </style>
 </head>
 <body>
-<div id="abstract">
+<section id="abstract">
 <p>A simple set of rules for placement of Ruby text in Japanese typography.</p>
-</div>
-<div id="sotd">
+</section>
+<section id="sotd">
 <p> This document was initially written in Japanese
   and translated to English
   by the <a href="https://www.aplab.jp/jwt">Japanese Writing Technology</a> Working Group
@@ -76,7 +76,7 @@
   with this particular approach,
   and to encourage discussion of this topic. </p>
 <p>The original Japanese version is <a href="ruby-rules-ja.pdf">available in PDF format</a>.</p>
-</div>
+</section>
 
 
 
@@ -134,7 +134,7 @@ in order to decide on the placement:</p>
     and whether this affects the position of the base text.</p>
 
 <aside class="note" title="Ruby annotations that are wider than the base text" id="n20200529002">
-<p>Since Japanese composition seeks to avoid spacing between characters as much as possible (see also JLReq <a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">section "Principles of Arrangement of Kanji and Kana Characters"</a>), ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, but often <em>are</em> allowed to overhang neighboring kana. 
+<p>Since Japanese composition seeks to avoid spacing between characters as much as possible (see the description of '<a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">solid setting</a>' in [[JLREQ]]), ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, but often <em>are</em> allowed to overhang neighboring kana. 
       This method works well when characters preceding and following 
       the ruby base are both kana
       or both kanji. 
@@ -291,7 +291,7 @@ and their placement in the inline direction relative to the base characters is a
 <li id="l20200529016">In vertical text, ruby annotation is placed to the right of the base characters,
     and the character frame of the ruby annotation is placed flush
     against the character frame of the base characters.
-	(See also JLReq <a href="https://www.w3.org/TR/jlreq/#kanji_hiragana_and_katakana">section 2.1.2 Kanji, Hiragana and Katakana</a> for details on character frame.)
+	(The '<a href="https://www.w3.org/TR/jlreq/#kanji_hiragana_and_katakana">character frame</a>' is described in [[JLREQ]].)
 <figure>
 <img src="img/fig05.svg" alt="" style="width: 20%; min-width: 10em;" />
 <figcaption>Example of vertical ruby.</figcaption>
@@ -332,7 +332,7 @@ points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the se
     they are placed according to each character’s metrics.</p>
 	
 <figure>
-<img src="img/fig07.svg" alt="" style="width: 10%; min-width: 4em;" />
+<img src="img/fig07.svg" alt="" style="width: 25%; min-width: 10em;" />
 <figcaption>Example of mono-ruby with western characters.</figcaption>
 </figure>
 </li>
@@ -738,7 +738,7 @@ start and the end of the ruby string (see [[[#double-group-1]]]).</p>
 <figcaption>Double-sided ruby where both sides are group-ruby.</figcaption>
 </figure>
 
-<p>When one of the ruby annotations is wider than its base text, 
+<p>When at least one of the ruby annotations is wider than its base text, 
 pick up the ruby annotation with longer length and place that ruby annotation 
 following the rules for placement of group-ruby, as described in 
 [[[#placement-of-group-ruby]]]. 
