@@ -193,13 +193,13 @@ so that placement may be determined fully automatically.</p>
 <h3 id="matters-considered-by-the-placement-rules">Considerations for  simple placement rules</h3>
 
 <p>Here are the fundamental assumptions underlying the simple placement rules.  In this document we refer to the ruby 
-annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
+annotation and its base text, collectively,  as the <dfn>ruby box</dfn>.</p>
 <ol>
 <li id="l20200529007">
 <p>Ruby is used to display the reading or the meaning of the base characters.
     Therefore, the number one priority here is to avoid misreadings.
     Specifically, this method does not allow a ruby annotation which is wider than its base text to overhang the characters preceding or 
-    following the <a title="ruby block">ruby block</a>, whether they are kanji or kana characters.</p>
+    following the <a>ruby box</a>, whether they are kanji or kana characters.</p>
 	
 <aside class="note" title="Overhanging surrounding characters" id="n20200529003"> The main placement method defined in [[JISX4051]]
       allows some amount of overhang over the preceding and following base characters,
@@ -209,18 +209,22 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
     and will use the same logic in either case.
     Specifically, the center of the ruby string and of the base character 
     string are aligned in the inline direction for mono-ruby.</li>
-<li id="l20200529009">Processing is done in two steps. 
-    In the first step, processing of layout only considers  the relative positions of the ruby 
-    annotation and its base text. 
-    In the second step,  layout processing decides the position of the <a title="ruby block">ruby block</a> in the line, taking into consideration the preceding and 
-    following characters. In other words relative positions of the ruby annotation and its base text as decided in the first step are not modified 
-    in  light of any characters preceding and following the ruby block. 
-    Also, when the ruby block is placed at 
-    the line head or the line end the method used in this document does not align the first or last 
-    character of the base text to the line head or the line 
-    end by modifying the relative positions of the ruby annotation and its base text. 
-    To summarise, the relative positions decided in the first step are not 
-    modified by the second step at all.</li>
+<li id="l20200529009">Processing is done in two levels.
+    In the first level, processing of layout only considers the relative position of the ruby annotation and its base text. 
+    In the second level, layout processing decides the position of the <a>ruby box</a> in the line. 
+    In other words, relative positions of the ruby annotation and its base text as decided in the first level 
+    are not modified in light of any characters or line edge preceding and following the <a>ruby box</a>.
+    Two levels are processed as following, with using <dfn>ruby column</dfn> for paired ruby annotation and its base text, 
+    and untransparent <a>ruby box</a> for <a>ruby box</a> with their relative position:
+    <ol>
+    <li id="l20220318001">The first level takes a <a>ruby column</a>> with required parameters for 
+        processing placement for inline direction inluding available space within the current line 
+        but without any preceding or following characters, 
+        and outputs one or more untransparent <a>ruby box</a>.</li>
+    <li id="l20220318002">The second level takes a size and preceding and following text of <a>ruby boxes</a>, 
+        and outputs styled text.</li>
+    </ol>
+</li>
 <li id="l20200529010">Although there are cases where  [[JLREQ]] 
     and [[JISX4051]] list multiple ways of positioning ruby, this document only describes one method, based on 
     the policies described above. 
@@ -319,8 +323,8 @@ it is explained last.</p>
 
 <section>
 <h3 id="placement-of-mono-ruby">Placement of mono-ruby</h3>
-<p>To align the following items to the <a href="#l20200529009">two-step processing method</a> described in [[[#matters-considered-by-the-placement-rules]]], 
-points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the second.</p>
+<p>To align the following items to the <a href="#l20200529009">two-level processing method</a> described in [[[#matters-considered-by-the-placement-rules]]], 
+points 1, 2, and 3 belong to the first level, and points 4 and 5 belong to the second.</p>
 <ol>
 <li id="l20200529018">
 <p>When the ruby annotation consists of two or more characters,
@@ -432,7 +436,7 @@ both are laid out without inter-character spacing
 and placed such that their respective centers are aligned in the inline direction
 (see [[[#group-ruby]]]).
 For other cases, the placement depends on the following.</p>
-<p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first step, and (4) and (5) to the second.</p>
+<p>In terms of the above-mentioned two-level processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first level, and (4) and (5) to the second.</p>
 
 <aside class="note" title="Inter-character spacing in group-ruby" id="n20200529005">For group-ruby, it is preferred for the length of ruby annotation and the length of its base text to be aligned, but the lengths may differ 
 by a number of characters. When the annotation is composed of <a title="japanese characters">Japanese characters</a>, to compensate for the difference,  space is added before, after, and between the characters of the ruby annotation, or those of the base 
@@ -572,7 +576,7 @@ with considering combinations of characters of ruby annotation and base text.
 
 <section>
 <h3 id="placement-of-jukugo-ruby">Placement of Jukugo-ruby</h3>
-<p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first step, and (4)  to the second.</p>
+<p>In terms of the above-mentioned two-level processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2) and (3)  belong to the first level, and (4)  to the second.</p>
 <ol>
 <li id="l20200529036">
 <p>With jukugo-ruby, each base text is associated with its own ruby annotation.
@@ -649,7 +653,7 @@ with considering combinations of characters of ruby annotation and base text.
 <h3 id="placement-of-double-sided-ruby-by-combination-of-type-of-ruby">Placement of double-sided ruby by combinations of ruby types</h3>
 <p> Quite complex methods are required to apply the full rules for placement of double-sided ruby. For simple placement of double-sided ruby, rules can be written for each of the 
 combinations of mono-ruby, group-ruby, and jukugo-ruby for two sides. 
-As we are using <a href="#l20200529009">two-step processing</a>, consideration of  ruby annotations that 
+As we are using <a href="#l20200529009">two-level processing</a>, consideration of  ruby annotations that 
 extend beyond the ruby base text and their relationship with preceding and following 
 characters, or placement at the line head or the line end, are processed in 
 the same way as when the ruby string is annotations on one side only. </p>
