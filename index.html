@@ -210,18 +210,17 @@ annotation and its base text, collectively,  as the <dfn>ruby box</dfn>.</p>
     Specifically, the center of the ruby string and of the base character 
     string are aligned in the inline direction for mono-ruby.</li>
 <li id="l20200529009">Processing is done in two levels.
-    In the first level, processing of layout only considers the relative position of the ruby annotation and its base text. 
-    In the second level, layout processing decides the position of the <a>ruby box</a> in the line. 
+    The first level only determines relative positions of ruby annotation and its base. 
+    Meanwhile, the second level determines inline positions of <a>ruby boxes</a>. 
     In other words, relative positions of the ruby annotation and its base text as decided in the first level 
     are not modified by the second level such as in light of any characters or line edge preceding and following the <a>ruby box</a>.
-    Two levels are processed as following, with using <dfn>ruby column</dfn> for paired ruby annotation and its base text, 
-    and untransparent <a>ruby box</a> for <a>ruby box</a> with their relative position:
+    Two levels are processed as following:
     <ol>
-    <li id="l20220318001">The first level takes a <a>ruby column</a> with required parameters for 
-        processing placement for inline direction inluding available space within the current line 
-        but without any preceding or following characters, 
-        and outputs one or more untransparent <a>ruby box</a>.</li>
-    <li id="l20220318002">The second level takes a size and preceding and following text of <a>ruby boxes</a>, 
+    <li id="l20220318001">The first level takes pairs of ruby annotation and its base text 
+        and parameters required for procesing such as available space in inline direction in the current line, 
+        but does not take any preceding or following characters. 
+        The first level outputs one or more untransparent <a>ruby boxes</a>, which have relative position of ruby annotation to its base.</li>
+    <li id="l20220318002">The second level takes a size of untransparent <a>ruby box</a> and its preceding and following text, 
         and outputs styled text.</li>
     </ol>
 </li>
