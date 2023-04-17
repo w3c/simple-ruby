@@ -210,17 +210,20 @@ annotation and its base text, collectively,  as the <dfn>ruby box</dfn>.</p>
     Specifically, the center of the ruby string and of the base character 
     string are aligned in the inline direction for mono-ruby.</li>
 <li id="l20200529009">Processing is done in two levels.
-    The first level only determines relative positions of ruby annotation and its base. 
-    Meanwhile, the second level determines inline positions of <a>ruby boxes</a>. 
-    In other words, relative positions of the ruby annotation and its base text as decided in the first level 
-    are not modified by the second level such as in light of any characters or line edge preceding and following the <a>ruby box</a>.
-    Two levels are processed as follows:
+    The first level only determines relative positions of ruby annotation and its base.
+    Meanwhile, the second level determines inline positions of <a>ruby boxes</a>.
+    In other words, relative positions of the ruby annotation and its base text as decided in the first level
+    are not referenced nor modified by the second level such as in light of any characters or line edge preceding and following the <a>ruby box</a>, 
+    except for hanging length of the ruby annotation from its base text when the ruby annotation is wider than its base text 
+    which may be used by the second level for removing spacing of the characters preceding or following the <a>ruby box</a>.
+    Two levels are processed as following:
     <ol>
-    <li id="l20220318001">The first level takes pairs of ruby annotation and its base text 
-        and parameters required for procesing such as available space in inline direction in the current line, 
-        but does not take any preceding or following characters. 
-        The first level outputs one or more untransparent <a>ruby boxes</a>, which have relative position of ruby annotation to its base.</li>
-    <li id="l20220318002">The second level takes a size of untransparent <a>ruby box</a> and its preceding and following text, 
+    <li id="l20220318001">The first level takes pairs of ruby base and its annotation
+        including parameters needed for processing, such as available space in the inline direction of the current line,
+        but excluding any preceding or following characters to the ruby base.
+        The first level outputs one or more <a>ruby boxes</a>, that indicate the outside size of <a>ruby boxes</a>
+        and the position of the ruby annotation with respect to its base.</li>
+    <li id="l20220318002">The second level looks at the outside size of <a>ruby box</a> and its surrounding text,
         and outputs styled text.</li>
     </ol>
 </li>
