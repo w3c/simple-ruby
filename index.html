@@ -102,13 +102,30 @@ and sometimes these approaches can be very complex. Ruby is one such case. There
   and because those designing such system may wish to provide alternative options.
   Note that the terminology is based on that defined in [[JLREQ]]. </p>
 
-<aside class="note" title="Ruby and interlinear notes" id="n20200529001"> Interlinear notes are sometimes placed between lines
-      in the same position as ruby annotations
-      (see also <a href="https://www.w3.org/TR/jlreq/#fig3_2_8">an example of an interlinear note in JLReq</a>).
-      These interlinear notes are not covered in this document.
-      Line breaks are not allowed inside mono-ruby annotations, and, for group-ruby, line-breaks are not allowed in the ruby base. 
-      In contrast, interlinear notes may involve a large number of characters, 
-      and it  must be possible to break lines within both the base text and the note itself, and use different rules for placement. </aside>
+<aside class="note" title="Ruby and interlinear notes" id="n20200529001">
+<p>Interlinear notes are sometimes placed between lines in the same position as ruby annotations
+(see also JLReq <a href="https://www.w3.org/TR/jlreq/#fig3_2_8">An example of a note in inter lines</a> for examples).
+These interlinear notes are not covered in this document.
+Ruby is used for readings of a single character or a single word, or rewording, 
+so its base text is a single character or a single word including compound word, and ruby annotation is a single word including compound word. 
+There are strong relationships between ruby annotation and its base text, 
+and a pair of ruby annotation and its base text are placed as one block (<a title="ruby block">ruby block</a>), 
+therefore line breaks are not allowed inside a <a title="ruby block">ruby block</a> in genetal. 
+(In <a title="jukugo-ruby">Jukugo-ruby</a>, line breaks are allowed to a limited extent, 
+and are totally prohibited within each <a title="ruby block">ruby block</a>.)    
+Also, it is desired not to overhang ruby annotations to surrounding text when length of ruby annotation is longer than one of its base text 
+(some exceptions exist to allow to overhang in some limited certain cases). 
+In contrast, interlinear notes are annotations but not ruby, 
+and target texts of interlinear notes and interlinear notes themselves may involve a large number of categories of characters, 
+also methods of pointing their targets, which correspond to base text in <a title="ruby block">ruby block</a>, 
+differ from ones for <a title="ruby block">ruby block</a>. 
+It is allowed to overhang annotation text of interlinear notes to surrounding text with keeping some level of relationship, 
+and it must be possible to break lines within both the base text and annotation text. 
+And thus, there are many differences in their contents, presentation forms, and placement rules, 
+therefore these interlinear notes are not covered in this document.
+</p>
+</aside>
+
 </section>
 
 
