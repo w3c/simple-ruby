@@ -5,6 +5,15 @@
 <title>Rules for Simple Placement of Japanese Ruby</title>
 <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script> 
 <script class="remove">
+      function addSelfLinks (config, document) {
+        var lis = document.querySelectorAll("li[id]");
+        lis.forEach(function(li) {
+          var selfLink = document.createElement("a");
+          selfLink.setAttribute("href", "#" + li.getAttribute("id"));
+          selfLink.setAttribute("class", "self-link");
+          li.prepend(selfLink);
+        });
+      };
       var respecConfig = {
         specStatus: "ED",
         editors: [
@@ -32,6 +41,7 @@
         },
         noRecTrack: true,
         group: "i18n",
+        postProcess: [ addSelfLinks ],
       };
     </script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -40,6 +50,27 @@
 	background: white;
 	padding: 0.5em;
 	}
+li {
+  position: relative;
+  }
+li > a.self-link {
+  position: absolute;
+  top: 0;
+  /* left: calc(-1 * (3.5rem - 26px)); */
+  left: calc(-1 * (3.5rem - 26px) - 2em);
+  width: calc(3.5rem - 26px);
+  height: 2em;
+  text-align: center;
+  border: none;
+  transition: opacity .2s;
+  opacity: .5;
+  }
+li > a.self-link:hover {
+  opacity: 1;
+  }
+li > a.self-link::before {
+  content: "¶";
+  }
 .translateme::before {
 	content: ' Translate this: ';
 	color: coral;
@@ -61,10 +92,10 @@
 </style>
 </head>
 <body>
-<div id="abstract">
+<section id="abstract">
 <p>A simple set of rules for placement of Ruby text in Japanese typography.</p>
-</div>
-<div id="sotd">
+</section>
+<section id="sotd">
 <p> This document was initially written in Japanese
   and translated to English
   by the <a href="https://www.aplab.jp/jwt">Japanese Writing Technology</a> Working Group
@@ -76,7 +107,7 @@
   with this particular approach,
   and to encourage discussion of this topic. </p>
 <p>The original Japanese version is <a href="ruby-rules-ja.pdf">available in PDF format</a>.</p>
-</div>
+</section>
 
 
 
@@ -92,7 +123,7 @@ but sometimes to provide other information.
 for more information.)</p>
 <p>As a guide for implementers of rendering engines, this document describes a simple method of ruby composition 
   that can be used for Japanese layout realized with technologies like CSS, SVG, and XML-FO. 
-  Unlike <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a> [[JLREQ]], in this document only one layout method is presented for each alternative, taking into consideration best practices and important points related to Japanese layout. The points taken into consideration are described in [[[#matters-considered-by-the-simple-placement-rules]]]. In addition, this document provides recommendations for double-sided ruby, where two distinct runs of ruby text are attached to the same ruby base (this is not described in  [[JLREQ]].</p>
+  Unlike <a href="https://www.w3.org/TR/jlreq/"><abbr title="Requirements for Japanese Text Layout">JLReq</abbr></a> [[JLREQ]], in this document only one layout method is presented for each alternative, taking into consideration best practices and important points related to Japanese layout. The points taken into consideration are described in [[[#matters-considered-by-the-simple-placement-rules]]]. In addition, this document provides recommendations for double-sided ruby, where two distinct runs of ruby annotation are attached to the same ruby base (this is not described in  [[JLREQ]].</p>
 <p>[[JLREQ]]  is largely a record of Japanese layout as established for the printing industry. It explains multiple ways to achieve one thing, 
 and sometimes these approaches can be very complex. Ruby is one such case. There are so many factors to consider, and often  contradictory requirements (see <a href="#n20200529002">some examples</a>), leading to a complexity that makes it challenging to automate ruby fully, per JLReq. </p>
 <p>It   would therefore be beneficial to outline a method that is adequate for automatic processing of ruby in general, but which is paired down to be simple and robust. In such cases, rather than ideal positioning, we must at least make sure that the positioning causes no misunderstanding. </p>
@@ -102,13 +133,30 @@ and sometimes these approaches can be very complex. Ruby is one such case. There
   and because those designing such system may wish to provide alternative options.
   Note that the terminology is based on that defined in [[JLREQ]]. </p>
 
-<aside class="note" title="Ruby and interlinear notes" id="n20200529001"> Interlinear notes are sometimes placed between lines
-      in the same position as ruby annotations
-      (see also JLReq <a href="https://www.w3.org/TR/jlreq/#fig3_2_8">Figure 241: An example of a note in inter lines</a> for examples).
-      These inter-linear notes are not covered in this document.
-      Line breaks are not allowed inside <a title="mono-ruby">mono-ruby</a> annotations, and, for <a title="group-ruby">group-ruby</a>, line-breaks are not allowed in the ruby base. 
-      In contrast, interlinear notes may involve a large number of characters, 
-      and it  must be possible to break lines within both the base text and the note itself, and use different rules for placement. </aside>
+<aside class="note" title="Ruby and interlinear notes" id="n20200529001">
+<p>Interlinear notes are sometimes placed between lines in the same position as ruby annotations
+(see also JLReq <a href="https://www.w3.org/TR/jlreq/#fig3_2_8">An example of a note in inter lines</a> for examples).
+These interlinear notes are not covered in this document.
+Ruby is used for readings of a single character or a single word, or rewording, 
+so its base text is a single character or a single word including compound word, and ruby annotation is a single word including compound word. 
+There are strong relationships between ruby annotation and its base text, 
+and a pair of ruby annotation and its base text are placed as one block (<a title="ruby block">ruby block</a>), 
+therefore line breaks are not allowed inside a <a title="ruby block">ruby block</a> in genetal. 
+(In <a title="jukugo-ruby">Jukugo-ruby</a>, line breaks are allowed to a limited extent, 
+and are totally prohibited within each <a title="ruby block">ruby block</a>.)    
+Also, it is desired not to overhang ruby annotations to surrounding text when length of ruby annotation is longer than one of its base text 
+(some exceptions exist to allow to overhang in some limited certain cases). 
+In contrast, interlinear notes are annotations but not ruby, 
+and target texts of interlinear notes and interlinear notes themselves may involve a large number of categories of characters, 
+also methods of pointing their targets, which correspond to base text in <a title="ruby block">ruby block</a>, 
+differ from ones for <a title="ruby block">ruby block</a>. 
+It is allowed to overhang annotation text of interlinear notes to surrounding text with keeping some level of relationship, 
+and it must be possible to break lines within both the base text and annotation text. 
+And thus, there are many differences in their contents, presentation forms, and placement rules, 
+therefore these interlinear notes are not covered in this document.
+</p>
+</aside>
+
 </section>
 
 
@@ -133,14 +181,16 @@ in order to decide on the placement:</p>
     whether it can be allowed to overhang the characters preceding or following,
     and whether this affects the position of the base text.</p>
 
-<aside class="note" title="Ruby annotations that are wider than the base text" id="n20200529002">
-<p>Since Japanese composition seeks to avoid spacing between characters as much as possible (see also JLReq <a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">section "Principles of Arrangement of Kanji and Kana Characters"</a>), ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, but often <em>are</em> allowed to overhang neighboring kana. 
-      This method works well when characters preceding and following 
-      the ruby base are both kana
-      or both kanji. 
-      However, depending on the number of ruby characters, it can lead to an unbalanced look when kana is on one side and kanji is on the other.
-      ([[[#ruby-overhang-mono]]] shows examples of <a title="mono-ruby">mono-ruby</a>, one where the ruby annotation overhangs, and another where it doesn't overhang  the kanji.)</p>
-	  
+<aside class="note" title="Examples of placements for ruby block which involves complex rules" id="n20200529002">
+<p>Since Japanese composition seeks to avoid spacing between characters as much as possible 
+(see the description of '<a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">solid setting</a>' in [[JLREQ]]), 
+ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, 
+but are allowed to overhang neighboring kana in some placement rules.
+Such rules could work nicely when the preceding and following characters are both kana or both kanji, 
+but it can lead to an unbalanced look depending on the number of characters of the ruby annotation 
+in cases like kana as the preceding character and kanji as the following character. 
+([[[#ruby-overhang-mono]]] shows examples of <a title="mono-ruby">mono-ruby</a>, one where the ruby annotation overhangs the kana and another where it doesn't overhang.)</p>
+
 <figure id="ruby-overhang-mono"> <img src="img/fig01.svg" style="width:20%; min-width: 10em;"/>
 <figcaption>Mono-ruby preceded by a kana character and followed by a kanji character, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
@@ -151,14 +201,20 @@ in order to decide on the placement:</p>
 <figcaption>Group-ruby  preceded by a kana character and followed by a kanji character, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
 
-<p>In letterpress printing,   ruby annotation layouts were adjusted on an individual basis. Some publishers had an additional 
-      rule disallowing overhang of adjacent kana text by katakana annotations, since katakana words can be considered a separate unit. 
-      For such cases, depending on the length of the ruby annotation, it would produce better balance to disallow overhanging of kana characters 
-      (see [[[#ruby-overhang-group-kana]]], where the second example applies this method).</p>
-	  
+<p>To produce better balance in the above cases, additional rules are required. 
+(In letterpress printing, ruby annotation layouts were adjusted to produce better balance individually.)
+In some cases, an additional rule is added to disallow the overhanging on adjacent kana text when characters of ruby annotation are katakana, 
+since katakana words can be considered a separate unit. 
+(In fact, it would produce better balance by disallowing the overhanging on adjacent kana depending on the number of characters of the ruby annotation. 
+See [[[#ruby-overhang-group-kana]]], where the second example applies this method.)
+An additional rule is also required for this point.</p>
+
 <figure id="ruby-overhang-group-kana"> <img src="img/fig03.svg"  alt="" style="width:25%; min-width: 15em;" />
 <figcaption>Group-ruby preceded and followed by kana characters, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
+
+<p>Applying one simple rule to disallow the overhanging of any adjacent character, including preceding or following kana, works 
+to prevent these complexities. However, this rule breaks a condition to avoid spacing between characters as much as possible.</p>
 </aside>
 </li>
 <li id="l20200529005"><p>When the ruby annotation is wider than its base text
@@ -166,7 +222,7 @@ in order to decide on the placement:</p>
     whether the base text or the ruby annotation should be aligned with the line edge.</p>
 </li>
 <li id="l20200529006">
-<p>When there are multiple base characters,
+<p>When there are multiple characters in base text,
     whether there can be a line wrap opportunity between them.</p>
 </li>
 </ol>
@@ -184,7 +240,13 @@ it is not practical to decide on the positioning
 case by case as was done in movable type typography.
 It is therefore necessary to decide upon comprehensive rules
 that provide solutions to all the problems listed above,
-so that placement may be determined fully automatically.</p>
+so that placement may be determined fully automatically. 
+The system to be designed needs to be very complex, 
+like ones described in <a href="https://www.w3.org/TR/jlreq/#positioning_of_jukugoruby">Positioning of Jukugo-ruby</a> in [[?JLREQ]], 
+but there exists some remaining issues even with these complex rules. 
+Therefore simple placement rules for fully automatic processing with securing certain level of quality is worth considering, 
+and this document describes one proposal of simple placement rules of Japanese ruby. 
+</p>
 </section>
 
 
@@ -196,31 +258,43 @@ so that placement may be determined fully automatically.</p>
 annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
 <ol>
 <li id="l20200529007">
-<p>Ruby is used to display the reading or the meaning of the base characters.
+<p>Ruby is used to display the reading or the meaning of characters of the base text.
     Therefore, the number one priority here is to avoid misreadings.
     Specifically, this method does not allow a ruby annotation which is wider than its base text to overhang the characters preceding or 
     following the <a title="ruby block">ruby block</a>, whether they are kanji or kana characters.</p>
 	
 <aside class="note" title="Overhanging surrounding characters" id="n20200529003"> The main placement method defined in [[JISX4051]]
-      allows some amount of overhang over the preceding and following base characters,
+      allows some amount of overhang over the preceding and following of the base text,
       but also recognizes the method defined here as an allowed variant. </aside>
 </li>
 <li id="l20200529008">The method is agnostic to horizontal vs vertical writing,
     and will use the same logic in either case.
-    Specifically, the center of the ruby string and of the base character 
-    string are aligned in the inline direction for <a title="mono-ruby">mono-ruby</a>.</li>
-<li id="l20200529009">Processing is done in two steps. 
+    Specifically, the center of the ruby annotation and of the ruby base 
+    are aligned in the inline direction for <a title="mono-ruby">mono-ruby</a>.</li>
+<li id="l20200529009"><p>Processing is done in two steps. 
     In the first step, processing of layout only considers  the relative positions of the ruby 
     annotation and its base text. 
     In the second step,  layout processing decides the position of the <a title="ruby block">ruby block</a> in the line, taking into consideration the preceding and 
     following characters. In other words relative positions of the ruby annotation and its base text as decided in the first step are not modified 
-    in  light of any characters preceding and following the ruby block. 
-    Also, when the ruby block is placed at 
-    the line head or the line end the method used in this document does not align the first or last 
-    character of the base text to the line head or the line 
-    end by modifying the relative positions of the ruby annotation and its base text. 
+    regardless of any characters preceding and following the <a>ruby block</a>. 
+    Also, when the <a title="ruby block">ruby block</a> is placed at 
+    the line edge the method used in this document does not align the first or last 
+    character of the base text to the line edge 
+    by modifying the relative positions of the ruby annotation and its base text. 
     To summarise, the relative positions decided in the first step are not 
-    modified by the second step at all.</li>
+    modified by the second step at all.</p>
+<aside class="note" title="Line breake and two-step processing for Jukugo-ruby" id="n20211124001">
+Line breaks are allowed inside Jukugo-ruby. 
+When line breaks are inserted inside Jukugo-ruby, 
+relative positions of the ruby annotation and its base text are changed compaired to ones before line breaks inserted. 
+For example, Jukugo-ruby whose base text is consisted of three characters, 
+three cases are possible with considering line breaks, three characters as one block, two blocks with one character and following two characters, 
+and two blocks with two characters and following one character. 
+For all of three cases, 
+relative positions of the ruby annotation and its base text are decided within each block without any relationship to surrounding characters. 
+Therefore, two-step processing method is applicable for Jukugo-ruby after line breaks inserted. 
+</aside>
+</li>
 <li id="l20200529010">Although there are cases where  [[JLREQ]] 
     and [[JISX4051]] list multiple ways of positioning ruby, this document only describes one method, based on 
     the policies described above. 
@@ -251,7 +325,7 @@ annotation and its base text, collectively,  as the <dfn>ruby block</dfn>.</p>
 <h3 id="types-of-ruby">Types of ruby</h3>
 
 <p>Ruby in Japanese may be divided into the following 3 different types,
-based on the relationship between the ruby and the base characters
+based on the relationship between the ruby annotation and the ruby base 
 (see <a href="https://www.w3.org/TR/jlreq/#usage_of_ruby">JLReq “3.3.1 Usage of Ruby”</a>).</p>
 <ol>
 <li id="l20200529012"><a title="mono-ruby">Mono-ruby</a></li>
@@ -265,19 +339,12 @@ based on the relationship between the ruby and the base characters
 </figure>
 
 <p>Which one to use depends on the relationship
-between the ruby and the base characters.
-<a title="mono-ruby">Mono-ruby</a> is used to connect ruby to a single base character,
-<dfn>Jukugo-ruby</dfn> is used when multiple base characters each have a corresponding ruby
+between the ruby annotation and the ruby base.
+<a title="mono-ruby">Mono-ruby</a> is used to connect ruby annotation to base text consisted of a single character,
+<dfn>Jukugo-ruby</dfn> is used when each character of the base text have a corresponding ruby annotation 
 and at the same time the whole group needs to be processed together,
-and <dfn>Group-ruby</dfn> is used when ruby is attached to a group of base characters together (see <a href="#ruby-types"></a> for examples).</p>
-<p><dfn>Mono-ruby</dfn> is defined to have a single character as its ruby base. 
-When the ruby base of one <a title="ruby block">ruby block</a> has multiple characters, 
-it is either <a title="group-ruby">Group-ruby</a> and <a title="jukugo-ruby">Jukugo-ruby</a>. 
-When the ruby base is segmented into each character, and a ruby annotation is attached to each, 
-then it is a <a title="jukugo-ruby">Jukugo-ruby</a>. 
-When a ruby annotation is attached to the whole ruby base, 
-then it is a <a title="group-ruby">Group-ruby</a>. 
-</p>
+and <a title="group-ruby">group-ruby</a> is used when ruby annotation is attached to whole base text as a group (see <a href="#ruby-types"></a>).
+Each is used when specified.</p>
 </section>
 </section>
 
@@ -290,23 +357,27 @@ then it is a <a title="group-ruby">Group-ruby</a>.
 <section>
 <h3 id="ruby-character-size-and-character-placement">Ruby character size and character placement</h3>
 
-<p>The size of the ruby annotation characters
-and their placement in the inline direction relative to the base characters is as follows:</p>
+<p>The font size of characters of the ruby annotation
+and their placement in the block direction relative to the ruby base are as follows:</p>
+<aside class="note" title="Placement of ruby annotation in the block direction" id="n20211123001">
+It is desirable that the spacing between the ruby text and its base be adjustable for accessibility. The spacing is zero by default. 
+</aside>
 <ol>
-<li id="l20200529015">The size of the ruby annotation is by default set to
-    half of the size of the base characters.</li>
-<li id="l20200529016">In vertical text, ruby annotation is placed to the right of the base characters,
+<li id="l20200529015">The size of characters of the ruby annotation is by default set to
+    half of the size of characters of the ruby base.</li>
+<li id="l20200529016">In vertical text, ruby annotation is placed to the right of the ruby base,
     and the character frame of the ruby annotation is placed flush
-    against the character frame of the base characters.
+    against the character frame of the ruby base.
 	(See also JLReq <a href="https://www.w3.org/TR/jlreq/#kanji_hiragana_and_katakana">section 2.1.2 Kanji, Hiragana and Katakana</a> for details on character frame.)
+	(The '<a href="https://www.w3.org/TR/jlreq/#kanji_hiragana_and_katakana">character frame</a>' is described in [[JLREQ]].)
 <figure>
 <img src="img/fig05.svg" alt="" style="width: 20%; min-width: 10em;" />
 <figcaption>Example of vertical ruby.</figcaption>
 </figure>
 </li>
-<li id="l20200529017">In horizontal text, ruby annotation is placed to the top of the base characters,
+<li id="l20200529017">In horizontal text, ruby annotation is placed to the top of the ruby base,
     and the character frame of the ruby annotation is placed flush
-    against the character frame of the base characters.
+    against the character frame of the ruby base.
 	
 <figure>
 <img src="img/fig06.svg" alt="" style="width: 20%; min-width: 12em;" />
@@ -328,7 +399,7 @@ it is explained last.</p>
 <h3 id="placement-of-mono-ruby">Placement of mono-ruby</h3>
 <p><a title="mono-ruby">Mono-ruby</a> is used to connect ruby annotation to a ruby base consisted of a single character.</p>
 <p>To align the following items to the <a href="#l20200529009">two-step processing method</a> described in [[[#matters-considered-by-the-placement-rules]]], 
-points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the second.</p>
+points (1), (2), and (3) belong to the first step, and points (4) and (5) belong to the second.</p>
 <ol>
 <li id="l20200529018">
 <p>When the ruby annotation consists of two or more characters,
@@ -340,13 +411,13 @@ points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the se
     they are placed according to each character’s metrics.</p>
 	
 <figure>
-<img src="img/fig07.svg" alt="" style="width: 10%; min-width: 4em;" />
+<img src="img/fig07.svg" alt="" style="width: 25%; min-width: 10em;" />
 <figcaption>Example of mono-ruby with western characters.</figcaption>
 </figure>
 </li>
 <li id="l20200529019">The center of the ruby annotation and of its base text are aligned in the inline direction
     (see [[[#mono-ex-1]]]).</li>
-<li id="l20200529020">Since the base character and its associated ruby annotation form a single unit
+<li id="l20200529020">Since the base text and its associated ruby annotation form a single unit
     there is no line wrapping opportunity inside mono-ruby.</li>
 <li id="l20200529021">
 <p>When the ruby annotation is wider than its base text,
@@ -354,7 +425,7 @@ points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the se
     must not overhang the characters preceding or following 
     (see [[[#mono-ex-1]]]).
     Spacing is introduced accordingly
-    between these preceding or following characters and the base characters.</p>
+    between these preceding or following characters and the base text.</p>
 	
 <figure id="mono-ex-1">
 <img src="img/fig08.svg" alt="" style="width: 25%; min-width: 10em;" />
@@ -370,25 +441,25 @@ points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the se
 <ul>
 <li id="l20200529022">If the character preceding the base text is one of <a href="https://www.w3.org/TR/jlreq/#cl-02">Closing brackets (cl-02)</a>, <a href="https://www.w3.org/TR/jlreq/#cl-06">Full stops (cl-06)</a>, <a href="https://www.w3.org/TR/jlreq/#cl-07">Commas (cl-07)</a>, <a href="https://www.w3.org/TR/jlreq/#cl-14">Full-width ideographic space (cl-14)</a>,
         or <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a>,
-        then the ruby must hang over
+        then the ruby annotation must hang over
         the blank portion at the end the character.
         (This blank portion is usually half the character’s width,
         except in the case of <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a> where it is a fourth of the character width).
         However, if this blank part has been compressed
         due to justification or similar processing of the line,
-        then the ruby may only hang over the resulting
+        then the ruby annotation may only hang over the resulting
         compressed blank spacing 
         (e.g. if it was reduced from half to a quarter em,
       hang at most a quarter em).</li>
 <li id="l20200529023">If the character following the base text is one of <a href="https://www.w3.org/TR/jlreq/#cl-01">Opening brackets (cl-01)</a> or <a href="https://www.w3.org/TR/jlreq/#cl-14">Full-width ideographic space (cl-14)</a>, <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05)</a>,
-        then the ruby must hang over
+        then the ruby annotation must hang over
         the blank portion at the start the character.
         (This blank portion is usually
         half the character’s width for <a href="https://www.w3.org/TR/jlreq/#cl-01">Opening brackets (cl-01)</a>,
         or a quarter of the character’s width for <a href="https://www.w3.org/TR/jlreq/#cl-05">Middle dots (cl-05).</a>)
         However, if this blank part has been compressed
         due to justification or similar processing of the line,
-        then the ruby may only hang over the resulting
+        then the ruby annotation may only hang over the resulting
         compressed blank spacing 
         (e.g. if it was reduced from half to a quarter em,
       hang at most a quarter em).</li>
@@ -406,7 +477,9 @@ points 1, 2, and 3 belong to the first step, and points 4 and 5 belong to the se
  (see [[[#line-start-mono]]]),
  while if the annotation falls at the end of the line,
  then the end of the ruby annotation is aligned with the line’s end edge
- (see [[[#line-end-mono]]]).</p>
+ (see [[[#line-end-mono]]]).
+This rule allows a gap between the ruby base and the line edge as long as the ruby annotation touches. [[?JISX4051]] adopts this rule.
+</p>
  
 <figure id="line-start-mono"> <img src="img/fig10.svg" alt="" style="min-width: 11em;" />
 <figcaption>Example of mono-ruby at the line start.</figcaption>
@@ -442,13 +515,23 @@ and placed such that their respective centers are aligned in the inline directio
 For other cases, the placement depends on the following.</p>
 <p>In terms of the above-mentioned two-step processing method  described in [[[#matters-considered-by-the-placement-rules]]], points (1), (2), (3) and (4) belong to the first step, and (5) to the second.</p>
 
-<aside class="note" title="Inter-character spacing in group-ruby" id="n20200529005">For group-ruby, it is preferred for the length of ruby annotation and the length of its base text to be aligned, but the lengths may differ 
-by a number of characters. When the annotation is composed of <a title="japanese characters">Japanese characters</a>, to compensate for the difference,  space is added before, after, and between the characters of the ruby annotation, or those of the base 
-text. 
-The  spatial ratio of 1 unit before/after and 2 units between characters was found to create a well balanced layout in letterpress 
-printing, and is used in the following method. 
+<aside class="note" title="Inter-character spacing in group-ruby" id="n20200529005">
+For the group ruby, the preferred method is to align the length of the ruby annotation and its base text.
+When the lengths differ between ruby annotation and its base text, several placement rules exist, such as 
+to make lengths of ruby annotation and its base text the same by adding inter-character spacing into either,
+or to align centers of ruby annotation and its base text in the inline direction with setting both solid.
+When the annotation is composed of <a title="japanese characters">Japanese characters</a>,
+the spatial ratio of one unit before/after and two units between characters is considered to be a well-balanced layout in letterpress printing and is used in the following method.
 In contrast, for <a title="western characters">Western characters</a>, this document focuses on keeping clusters of 
 Western characters together rather than aligning lengths, and uses no method for inter-character spacing.</aside>
+
+<aside class="note" title="Group-ruby contains Western word space (cl-26)" id="n20211025001">There are cases 
+in which ruby annotation or base text of group-ruby contains <a href="https://www.w3.org/TR/jlreq/#cl-26">Western word spaces (cl-26)</a>, 
+but these are outside the scope of this document.
+There are two methods to align ruby annotation and its base text.
+One method uses <a href="https://www.w3.org/TR/jlreq/#cl-26">Western word spaces (cl-26)</a> for adjustment,
+and the other does not.
+The metnod defined in [[JISX4051]] does not use <a href="https://www.w3.org/TR/jlreq/#cl-26">Western word spaces (cl-26)</a> for spacing adjustments.</aside>
 
 <ol>
 <li id="l20200529025">
@@ -469,7 +552,7 @@ Western characters together rather than aligning lengths, and uses no method for
         spacing is inserted between every character in the ruby annotation
         as well as at the start and the end of the ruby annotation so that it becomes the same width as the base text,
         then their centers in the inline direction are aligned.
-        The size of the spacing inserted between each of the ruby characters
+        The size of the spacing inserted between each character of the ruby annotation 
         is twice the size of the spacing inserted at the end and at the start
         (see [[[#group-2]]]).</p>
 		
@@ -479,8 +562,8 @@ Western characters together rather than aligning lengths, and uses no method for
 </figure>
 
 <p>However, the size of the spacing inserted at the start and the end must
-        be capped at no more than half the size of one base character,
-        and the spacing inserted between each ruby character is enlarged to compensate (see [[[#group-3]]]).</p>
+        be capped at no more than half the size of one character of base text,
+        and the spacing inserted between each character of the ruby annotation is enlarged to compensate (see [[[#group-3]]]).</p>
 		
 <figure id="group-3">
 <img src="img/fig14.svg" alt="" style="min-width: 11em;" />
@@ -492,7 +575,7 @@ Western characters together rather than aligning lengths, and uses no method for
         spacing is inserted between every character in the base text
         as well as at the start and the end of the base text so that it becomes the same length as the ruby annotation,
         then their centers in the inline direction are aligned.
-        The size of the spacing inserted between each of the base characters
+        The size of the spacing inserted between each character of the base text 
         is twice the size of the spacing inserted at the end and at the start
         (see [[[#group-4]]]).</p>
 <figure id="group-4"> <img src="img/fig15.svg" alt="" style="min-width: 22em;" />
@@ -503,15 +586,15 @@ Western characters together rather than aligning lengths, and uses no method for
 </li>
 <li id="l20200529028">
 <p>Where a ruby annotation  consists of <a title="japanese characters">Japanese characters</a> and 
-    its ruby base text  consists of <a title="western characters">Western characters</a>, 
+    its ruby base consists of <a title="western characters">Western characters</a>, 
     the placement depends on the following (see [[[#ruby-west]]]):</p>
 <ul>
 <li id="l20200529029">When the ruby annotation is less wide than its base text,
         spacing is inserted between every character in the ruby annotation
         as well as at the start and the end of the ruby annotation
-        so that it becomes the same length as the base character string,
+        so that ruby annotation becomes the same length as the base text,
         then their centers in the inline direction are aligned.
-        The size of the spacing inserted between each of the ruby characters
+        The size of the spacing inserted between each character of the ruby annotation 
         is twice the size of the spacing inserted at the end and at the start.</li>
 <li id="l20200529030">When the ruby annotation is wider than its base text,
         both are laid out without inter-character spacing
@@ -535,7 +618,7 @@ Western characters together rather than aligning lengths, and uses no method for
         as well as at the start and the end of the base text
         so that it becomes the same length as the ruby annotation,
         then their centers in the inline direction are aligned.
-        The size of the spacing inserted between each of the base characters
+        The size of the spacing inserted between each character of the base text 
         is twice the size of the spacing inserted at the end and at the start.</li>
 </ul>
 </li>
@@ -544,11 +627,15 @@ Western characters together rather than aligning lengths, and uses no method for
     the base text and its associated ruby annotation
     are treated as a unit, 
     so there is no line wrapping opportunity inside either string.</p>
-        
-<aside class="note" title="Wrap opportunities in group-ruby" id="n20200529006">
-<p>As group-ruby is treated as a single unit, there is no wrap opportunity.
-    However, there are examples where allowing wrapping may be desirable.
-    In such cases, based on appropriate association of base text and ruby annotations, it may be appropriate to handle the wrapping opportunities in the same way as for jukugo-ruby.</p>
+	
+<aside class="note" title="Line wrapping in group-ruby" id="n20200529006">
+<p>As <a title="group-ruby">group-ruby</a> is treated as a single unit, there is no wrap opportunity. 
+However, in letterpress printing, there are cases to introduce line wrapping within <a title="group-ruby">group-ruby</a> 
+in cases like compound words, 
+since there were cases to make extream placement results by line alignment. 
+Considering this, it is desired to allow line wrapping in <a title="group-ruby">group-ruby</a> 
+with considering combinations of characters of ruby annotation and base text. 
+</p>
 <figure id="wrap-group">
 <img src="img/fig18.svg" alt="" style="min-width: 25em;" />
 <figcaption>Wrapping group-ruby.</figcaption>
@@ -561,7 +648,7 @@ Western characters together rather than aligning lengths, and uses no method for
     the base text 
     is handled in the same way as for <a title="mono-ruby">mono-ruby</a>
     (see [[[#protruding-group]]]).
-    Also, when the ruby annotation is wider than its base character string and extends beyond it and is located at the start or the end of the line,
+    Also, when the ruby annotation is wider than its base text and extends beyond it and is located at the start or the end of the line,
     the resulting layout is also identical to that for <a title="mono-ruby">mono-ruby</a>.</p>
 <figure id="protruding-group">
 <img src="img/fig17.svg" alt="" style="min-width: 14em;" />
@@ -594,7 +681,7 @@ Western characters together rather than aligning lengths, and uses no method for
 </figure>
 </li>
 <li id="l20200529038">
-<p>When the ruby annotation associated with an individual base character is 2 characters long or more,
+<p>When the ruby annotation associated with an individual character in base text is 2 characters long or more,
         the ruby annotation is laid out without inter-character spacing,
         and placed such that its center and the center of its base text are aligned in the inline direction (see [[[#jukugo-1]]]).</p>
 </li>
@@ -655,32 +742,32 @@ Western characters together rather than aligning lengths, and uses no method for
 combinations of <a title="mono-ruby">mono-ruby</a>, <a title="group-ruby">group-ruby</a>, and <a title="jukugo-ruby">jukugo-ruby</a> for two sides. 
 As we are using <a href="#l20200529009">two-step processing</a>, consideration of  ruby annotations that 
 extend beyond the ruby base text and their relationship with preceding and following 
-characters, or placement at the line head or the line end, are processed in 
-the same way as when the ruby string is annotations on one side only. </p>
+characters, or placement at the line edge, are processed in 
+the same way as when the ruby annotation is on one side only. </p>
+</section>
 
-<aside class="note" title="Space between adjacent lines and double-sided ruby" id="n20200529007">
+<section>
+<h3 id="space-between-adjacent-lines-and-double-sided-ruby">Space between adjacent lines and double-sided ruby</h3>
 <p>When two adjacent rows have double-sided ruby, the configuration of the inter-line spacing could cause an undesirable overlap of two ruby annotations. 
 The following methods could be applied to avoid such cases:</p>
 <ol>
 <li id="l20200529042">Configure the space between lines across the whole document in advance to avoid 
     the potential overlap of two ruby annotations.</li>
-<li id="l20200529043">Avoid overlap by using a wider line gap where the overlap of two ruby annotations happens. In some methods, a rule is applied to give an additional quarter em gap between two ruby 
-    strings.</li>
+<li id="l20200529043">Avoid overlap by using a wider line gap where the overlap of two ruby annotations happens. In some methods, a rule is applied to give an additional quarter em gap between two ruby annotation.</li>
 <li id="l20200529044">Place lines with double-sided ruby in regions that are surrounded by multiple lines, instead of 
     having wider line gaps. 
     For example, lines with double-sided ruby are set at the center of a two line 
     space 
   (see <a href="https://www.w3.org/TR/jlreq/#processing_of_gyoudori">JLReq "Processing of Gyou-dori"</a>).</li>
-<li id="l20200529045"> Extend not only the line spacing where overlap has occurred, but the line spacing of the entire relevant paragraph so that ruby does not overlap.</li>
+<li id="l20200529045"> Extend not only the line spacing where overlap has occurred, but the line spacing of the entire relevant paragraph so that ruby annotation does not overlap.</li>
 </ol>
 <p>In letterpress printing, the first method was used for cases where the document had 
-a large number of ruby or many reference marks. The second or third method 
-was used for cases where a document has less ruby. 
+a large number of ruby annotations or many reference marks. The second or third method 
+was used for cases where a document has less ruby annotations. 
 In automatic processing used for the Web documents, the third method might be 
 suitable. Using the third method in an area with an integral number of line spaces around it
 (for example, centering across a two line space) limits the disruption to that line, and maintains the alignment of lines against those in any adjacent column. 
 (See also <a href="https://www.w3.org/TR/jlreq/#adjustment_of_processing_of_realm_in_block_direction">JLReq "Adjustment of Processing of Realm in Block Direction"</a>.)</p>
-</aside>
 </section>
 
 
@@ -707,8 +794,8 @@ suitable. Using the third method in an area with an integral number of line spac
 <p>[[JISX4051]] provides procedures for handling (1), (2), and (3)  (see a <a href="https://www.w3.org/TR/jlreq/#n104">note in JLReq</a>). 
 But (3) is actually handled as (2) by first concatenating <a title="mono-ruby">mono-ruby</a> strings to form a single <a title="group-ruby">group-ruby</a>.</p>
 <p>We propose to handle (4) as (1) by first converting <a title="jukugo-ruby">jukugo-ruby</a> to <a title="mono-ruby">mono-ruby</a>, and to handle (5) as (2) by first converting <a title="jukugo-ruby">jukugo-ruby</a> to <a title="group-ruby">group-ruby</a>.</p>
-<p>This document, therefore, provides rules for simple placement of double-sided ruby using cases (1) and (2).</p>
-<p>Which side the ruby annotations should be placed depends on the specification.</p>
+<p>To summarize, cases (3) and (5) are equivalent to case (2), and case (4) is equivalent to case (1) using the above conversion rules.
+This document, therefore, provides rules for simple placement of double-sided ruby for cases (1) and (2).</p>
 </section>
 
 
@@ -739,14 +826,14 @@ follow the rules for placement of <a title="group-ruby">group-ruby</a> described
 [[[#placement-of-group-ruby]]]. 
 When the ruby annotation consists of <a title="japanese characters">Japanese characters</a>, defined in 
 [[[#placement-of-group-ruby]]], 
-spacing is inserted between every character in the ruby string as well as the 
-start and the end of the ruby string (see [[[#double-group-1]]]).</p>
+spacing is inserted between every character in the ruby annotation as well as the 
+start and the end of the ruby annotation (see [[[#double-group-1]]]).</p>
 <figure id="double-group-1">
 <img src="img/fig24.svg" alt="" style="min-width: 12em;" />
 <figcaption>Double-sided ruby where both sides are group-ruby.</figcaption>
 </figure>
 
-<p>When one of the ruby annotations is wider than its base text, 
+<p>When at least one of the ruby annotations is wider than its base text, 
 pick up the ruby annotation with longer length and place that ruby annotation 
 following the rules for placement of group-ruby, as described in 
 [[[#placement-of-group-ruby]]]. 
@@ -771,7 +858,7 @@ follow the rules for the placement of group-ruby described in
 [[[#placement-of-group-ruby]]], 
 using the length of the ruby base text with inter-character 
 spacing. 
-When the shorter ruby string consists of <a title="japanese characters">Japanese characters</a>, as described in 
+When the shorter ruby annotation consists of <a title="japanese characters">Japanese characters</a>, as described in 
 [[[#placement-of-group-ruby]]],
 spacing is inserted between every character in the ruby annotation 
 as well as at the start and the end of the ruby annotations (see [[[#double-group-3]]]).</p>
@@ -783,5 +870,113 @@ as well as at the start and the end of the ruby annotations (see [[[#double-grou
 described in [[[#placement-of-group-ruby]]].</p>
 </section>
 </section>
+
+
+
+<section class="appendix">
+<h2 id="simplification-of-ruby-placement-rules">Simplification of Ruby placement rules</h2>
+
+<section>
+<h3 id="alignment-between-ruby-annotation-and-base-text">Alignment between ruby annotation and base text</h3>
+
+<section>
+<h4 id="alignment-between-ruby-annotation-and-base-text-mono-ruby">Mono-ruby</h4>
+<p>In <a title="mono-ruby">mono-ruby</a>, 
+the following three methods are mainly used for the relative positions of the ruby annotation and its base text.
+This document uses the option 1. Characters of the ruby annotation are set solid.
+</p>
+<ol>
+ <li id="l20211116001">The ruby annotation's centre and base text is aligned in the inline direction.</li>
+ <li id="l20211116002">The beginning of the ruby annotation and its base text is aligned in the inline direction.</li>
+ <li id="l20211116003">In principle, the beginning of the ruby annotation and its base text are aligned in the inline direction.
+ If the ruby annotation is wider than its base text, 
+ follow <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
+ The results may depend on the character class of characters preceding and following.</li>
+</ol>
+<p>In some cases, for every <a title="ruby block">ruby blocks</a> at line edge, 
+alignments follow <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] regardless which option listed above is picked.
+Alignment between ruby annotation and base text may differ in this case.</p>
+</section>
+
+
+<section>
+<h4 id="alignment-between-ruby-annotation-and-base-text-group-ruby">Group-ruby</h4>
+<p>In Group-ruby, when lengths of ruby annotation and base text differ in solid setting,
+the following three methods are mainly used for inserting spacing to shorter one to make two as the same length.
+This document uses the option 1 for <a title="japanese characters">Japanese characters</a>.</p>
+<ol>
+ <li id="l20211116011">Spacing is inserted between every character and both edges.
+ The size of spacing inserted at both edges is half the size of the spacing inserted between every character.</li>
+ <li id="l20211116011">Spacing is inserted between every characters.</li>
+ <li id="l20211116013">Both ruby annotation and base text are set solid and aligned at the beginning, the end, or the center.</li>
+</ol>
+<p>When the ruby annotation is longer than its base, some layout methods add adjustments depending on the context. This document does not adopt this method.</p>
+</section>
+
+<section>
+<h4 id="alignment-between-ruby-annotation-and-base-text-jukugo-ruby">Jukugo-ruby</h4>
+<p>Following four methods are mainly used as rules for the placement of Jukugo-ruby.
+This document uses the option 1.
+Although options 2 and 3 are simpler than option 1, taking the fundamentals of Jukugo-ruby into account and
+modifying correspondence among blocks of ruby annotations and base texts enables these options,
+options 2 and 3 are not used in this document.</p>
+<ol>
+ <li id="l20211116021">Place each pair of ruby annotation and base text as Mono-ruby, or Jukugo-ruby block as one Group-ruby,
+ depends on the lengths of ruby annotation assigned to each base text in the Jukugo-ruby block.</li>
+ <li id="l20211116022">Place each pair of ruby annotation and base text as Mono-ruby.</li>
+ <li id="l20211116023">Place whole Jukugo-ruby block as one Group-ruby.</li>
+ <li id="l20211116024">For ruby annotations in one Jukugo-ruby, which are wider than their base text, 
+ allow characters of ruby annotation to overhang surrounding kanji within the same Jukugo-ruby by 1/2 of the character size of the base text, 
+ following <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
+ Although characters of ruby annotations may overhang characters of surrounding base text by this rule, 
+ at least one character of each ruby annotation shall overhang its base text. 
+ For <a title="ruby block">ruby block</a> at line edge, 
+ <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] is used in most cases. 
+ Alignment between ruby annotation and base text may differ depending on surrounding characters or line edges.</li>
+</ol>
+</section>
+
+
+</section>
+
+
+<section>
+<h3 id="overhang-surrounding-characters">Overhanging surrounding characters</h3>
+<p>When the ruby annotation is wider than its base text,
+the following three methods are mainly used for overhanging surrounding characters.
+This document uses the option 1.</p>
+<ol>
+ <li id="l20211116031">Do not overhang surrounding characters, except for punctuation marks containing spacing.</li>
+ <li id="l20211116032">Do not overhang surrounding kanji, 
+ but allow for overhanging kana and some punctuation marks by 1/2 of the character size of the base text.</li>
+ <li id="l20211116033">Allow ruby annotation to overhang surrounding characters regardless of the character class, 
+ by 1/4 of the character size of the base text.</li>
+</ol>
+<p>Although used option is commonly applied to all of <a title="mono-ruby">mono-ruby</a>, <a title="group-ruby">group-ruby</a> and 
+<a title="jukugo-ruby">jukugo-ruby</a>, 
+for when option 2 is used, 
+there is a method to apply option 1 only in case of all characters of ruby annotation 
+in <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>.</p>
+</section>
+
+
+<section>
+<h3 id="alignment-at-line-edge">Alignment at line edge</h3>
+<p>When the ruby annotation is wider than its base text, and the ruby block falls at the line edge,
+the following two methods are mainly used for alignment at the line edge.
+This document uses the option 1.
+When option 2 is used, 
+alignment between ruby annotation and base text may differ from one described in [[[#alignment-between-ruby-annotation-and-base-text]]].</p>
+<ol>
+ <li id="l20211116041">Align the start of the ruby annotation with the line's start edge,
+ and the end of the ruby annotation with the line's end edge.</li>
+ <li id="l20211116042">Align the start of the base text with the line's start edge,
+ and the end of the base text with the line's end edge.</li>
+</ol>
+</section>
+
+
+</section>
+
 </body>
 </html>
