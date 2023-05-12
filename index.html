@@ -137,10 +137,10 @@ in order to decide on the placement:</p>
 <p>Since Japanese composition seeks to avoid spacing between characters as much as possible (see also JLReq <a href="https://www.w3.org/TR/jlreq/#principles_of_arrangement_of_kanji_and_kana_characters">section "Principles of Arrangement of Kanji and Kana Characters"</a>), 
 ruby annotations wider than their base characters are not allowed to overhang neighboring kanji, 
 but are allowed to overhang neighboring kana in some placement rules.
-Such rules could work nicely when preceding and following characters are both kana or both kanji, 
-but it can lead to an unbalanced look depends on a number of characters of ruby annotation 
-in cases like kana as preceding character and kanji as following character. 
-([[[#ruby-overhang-mono]]] shows examples of mono-ruby, one where the ruby annotation overhangs the kana, and another where it doesn't overhang.)</p>
+Such rules could work nicely when the preceding and following characters are both kana or both kanji, 
+but it can lead to an unbalanced look depending on the number of characters of the ruby annotation 
+in cases like kana as the preceding character and kanji as the following character. 
+([[[#ruby-overhang-mono]]] shows examples of mono-ruby, one where the ruby annotation overhangs the kana and another where it doesn't overhang.)</p>
 
 <figure id="ruby-overhang-mono"> <img src="img/fig01.svg" style="width:20%; min-width: 10em;"/>
 <figcaption>Mono-ruby preceded by a kana character and followed by a kanji character, where the ruby annotation extends beyond its base text.</figcaption>
@@ -152,20 +152,20 @@ in cases like kana as preceding character and kanji as following character.
 <figcaption>Group-ruby  preceded by a kana character and followed by a kanji character, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
 
-<p>To produce better balance on above cases, additional rules are required. 
-(In letterpress printing, ruby annotation layouts were adjusted to produce better balance on an individual basis.)
-In some cases, an additional rule is added to disallow overhang of adjacent kana text when characters of ruby annotation are katakana, 
+<p>To produce better balance in the above cases, additional rules are required. 
+(In letterpress printing, ruby annotation layouts were adjusted to produce better balance individually.)
+In some cases, an additional rule is added to disallow the overhanging on adjacent kana text when characters of ruby annotation are katakana, 
 since katakana words can be considered a separate unit. 
-(In fact, it would produce better balance to disallow overhang of adjacent kana depnds on a number of characters of ruby annotation. 
+(In fact, it would produce better balance by disallowing the overhanging on adjacent kana depending on the number of characters of the ruby annotation. 
 See [[[#ruby-overhang-group-kana]]], where the second example applies this method.)
-Additional rule is also required for this point.</p>
+An additional rule is also required for this point.</p>
 
 <figure id="ruby-overhang-group-kana"> <img src="img/fig03.svg"  alt="" style="width:25%; min-width: 15em;" />
 <figcaption>Group-ruby preceded and followed by kana characters, where the ruby annotation extends beyond its base text.</figcaption>
 </figure>
 
-<p>Applying one simple rule to disallow overhang of adjacent any character including preceding or following kana works 
-to prevent these complexity, although this rule breaks a condition to avoid spacing between characters as much as possible.</p>
+<p>Applying one simple rule to disallow the overhanging of any adjacent character, including preceding or following kana, works 
+to prevent these complexities. However, this rule breaks a condition to avoid spacing between characters as much as possible.</p>
 </aside>
 </li>
 <li id="l20200529005"><p>When the ruby annotation is wider than its base text
