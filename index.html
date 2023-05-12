@@ -5,6 +5,15 @@
 <title>Rules for Simple Placement of Japanese Ruby</title>
 <script src="https://www.w3.org/Tools/respec/respec-w3c" class="remove"></script> 
 <script class="remove">
+      function addSelfLinks (config, document) {
+        var lis = document.querySelectorAll("li[id]");
+        lis.forEach(function(li) {
+          var selfLink = document.createElement("a");
+          selfLink.setAttribute("href", "#" + li.getAttribute("id"));
+          selfLink.setAttribute("class", "self-link");
+          li.prepend(selfLink);
+        });
+      };
       var respecConfig = {
         specStatus: "ED",
         editors: [
@@ -32,6 +41,7 @@
         },
         noRecTrack: true,
         group: "i18n",
+        postProcess: [ addSelfLinks ],
       };
     </script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -40,6 +50,27 @@
 	background: white;
 	padding: 0.5em;
 	}
+li {
+  position: relative;
+  }
+li > a.self-link {
+  position: absolute;
+  top: 0;
+  /* left: calc(-1 * (3.5rem - 26px)); */
+  left: calc(-1 * (3.5rem - 26px) - 2em);
+  width: calc(3.5rem - 26px);
+  height: 2em;
+  text-align: center;
+  border: none;
+  transition: opacity .2s;
+  opacity: .5;
+  }
+li > a.self-link:hover {
+  opacity: 1;
+  }
+li > a.self-link::before {
+  content: "¶";
+  }
 .translateme::before {
 	content: ' Translate this: ';
 	color: coral;
