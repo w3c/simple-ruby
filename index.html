@@ -270,18 +270,13 @@ between the ruby and the base characters.
 <dfn>Jukugo-ruby</dfn> is used when multiple base characters each have a corresponding ruby
 and at the same time the whole group needs to be processed together,
 and <dfn>Group-ruby</dfn> is used when ruby is attached to a group of base characters together (see <a href="#ruby-types"></a> for examples).</p>
-<p><dfn>Mono-ruby</dfn> is defined to have a single character as its ruby base, it is clear to tell as <a title="mono-ruby">Mono-ruby</a> 
-when <a title="ruby block">ruby block</a> has a single character as its ruby base. 
-But, there is no clear boundary on handling between <a title="group-ruby">Group-ruby</a> and <a title="jukugo-ruby">Jukugo-ruby</a>, both of whose ruby base contains multiple characters. 
-In this document, 
-a <a title="ruby block">ruby block</a> with only one group of ruby annotation and ruby base consisted of multiple characters is handled as <a title="group-ruby">Group-ruby</a>, 
-and a <a title="ruby block">ruby block</a>, 
-whose ruby base is consisted of multiple characters and individual ruby annotation is assigned to each character as its ruby base, 
-is handled as <a title="jukugo-ruby">Jukugo-ruby</a>. 
-Also in this document, even for Jukugo, without assigning a whole Jukugo as one <a title="ruby block">ruby block</a>,
-a run of Jukugo is handled as multiple <a title="mono-ruby">Mono-ruby</a> blocks when ruby annotations are associated to their ruby base consisted of a single character, 
-or is handled as a <a title="group-ruby">Group-ruby</a> when ruby annotations are associated only to ruby bases consisted of multiple characters 
-without associations to ruby base consisted of a single character. 
+<p><dfn>Mono-ruby</dfn> is defined to have a single character as its ruby base. 
+When the ruby base of one <a title="ruby block">ruby block</a> has multiple characters, 
+it is either <a title="group-ruby">Group-ruby</a> and <a title="jukugo-ruby">Jukugo-ruby</a>. 
+When the ruby base is segmented into each character, and a ruby annotation is attached to each, 
+then it is a <a title="jukugo-ruby">Jukugo-ruby</a>. 
+When a ruby annotation is attached to the whole ruby base, 
+then it is a <a title="group-ruby">Group-ruby</a>. 
 </p>
 </section>
 </section>
