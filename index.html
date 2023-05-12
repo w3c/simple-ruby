@@ -787,95 +787,99 @@ described in [[[#placement-of-group-ruby]]].</p>
 <section>
 <h4 id="alignment-between-ruby-annotation-and-base-text-mono-ruby">Mono-ruby</h4>
 <p>In <a title="mono-ruby">mono-ruby</a>, 
-following three methods are mainly used for the relative positions of the ruby annotation and its base text.
-In this document, option 1 is picked. Characters of the ruby annotation are set solid.
+the following three methods are mainly used for the relative positions of the ruby annotation and its base text.
+This document uses the option 1. Characters of the ruby annotation are set solid.
 </p>
 <ol>
-  <li id="l20211116001">The center of the ruby annotation and of its base text are aligned in the inline direction.</li>
-  <li id="l20211116002">The beginning of the ruby annotation and of its base text are aligned in the inline direction.</li>
-  <li id="l20211116003">In principle, the beginning of the ruby annotation and of its base text are aligned in the inline direction.
-    If the ruby annotation is wider than its base text, 
-    follow <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
-    The results may depend on the character class of characters preceding and following.</li>
+ <li id="l20211116001">The ruby annotation's centre and base text is aligned in the inline direction.</li>
+ <li id="l20211116002">The beginning of the ruby annotation and its base text is aligned in the inline direction.</li>
+ <li id="l20211116003">In principle, the beginning of the ruby annotation and its base text are aligned in the inline direction.
+ If the ruby annotation is wider than its base text, 
+ follow <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
+ The results may depend on the character class of characters preceding and following.</li>
 </ol>
 <p>In some cases, for every <a title="ruby block">ruby blocks</a> at line edge, 
 alignments follow <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] regardless which option listed above is picked.
 Alignment between ruby annotation and base text may differ in this case.</p>
 </section>
 
+
 <section>
 <h4 id="alignment-between-ruby-annotation-and-base-text-group-ruby">Group-ruby</h4>
 <p>In Group-ruby, when lengths of ruby annotation and base text differ in solid setting,
-following three methods are mainly used for inserting spacing to shorter one to make two as the same length.
-In this document, option 1 is picked for <a title="japanese characters">Japanese characters</a>.</p>
+the following three methods are mainly used for inserting spacing to shorter one to make two as the same length.
+This document uses the option 1 for <a title="japanese characters">Japanese characters</a>.</p>
 <ol>
-  <li id="l20211116011">Spacing is inserted between every characters as well as the both edge.
-    The size of spacing inserted at the both edge is half the size of the spacing inserted between every characters.</li>
-  <li id="l20211116011">Spacing is inserted between every characters.</li>
-  <li id="l20211116013">Both ruby annotation and base text are set solid, and align at the beginning, the end, or the center.</li>
+ <li id="l20211116011">Spacing is inserted between every character and both edges.
+ The size of spacing inserted at both edges is half the size of the spacing inserted between every character.</li>
+ <li id="l20211116011">Spacing is inserted between every characters.</li>
+ <li id="l20211116013">Both ruby annotation and base text are set solid and aligned at the beginning, the end, or the center.</li>
 </ol>
-<p>In principle, no fine adjustment between ruby annotation and base text depends on surrounding characters or at line edge 
-is taken when ruby annotation is wider than its base text, but fine adjustment is taken in some cases.</p>
+<p>When the ruby annotation is longer than its base, some layout methods add adjustments depending on the context. This document does not adopt this method.</p>
 </section>
 
 <section>
 <h4 id="alignment-between-ruby-annotation-and-base-text-jukugo-ruby">Jukugo-ruby</h4>
-<p>Following four methods are mainly used as rules for placement of Jukugo-ruby.
-In this document, option 1 is picked.
-Although options 2 and 3 are simpler than option 1, taking fundamentals of Jukugo-ruby into account and
+<p>Following four methods are mainly used as rules for the placement of Jukugo-ruby.
+This document uses the option 1.
+Although options 2 and 3 are simpler than option 1, taking the fundamentals of Jukugo-ruby into account and
 modifying correspondence among blocks of ruby annotations and base texts enables these options,
-options 2 and 3 are not picked in this document.</p>
+options 2 and 3 are not used in this document.</p>
 <ol>
-  <li id="l20211116021">Place each pair of ruby annotation and base text as Mono-ruby, or whole Jukugo-ruby block as one Group-ruby,
-    depends on lengths of ruby annotation assigned to each base text in Jukugo-ruby block.</li>
-  <li id="l20211116022">Place each pair of ruby annotation and base text as Mono-ruby.</li>
-  <li id="l20211116023">Place whole Jukugo-ruby block as one Group-ruby.</li>
-  <li id="l20211116024">For ruby annotations in one Jukugo-ruby which are wider than their base text, 
-    allow characters of ruby annotation to overhang surrounding kanji within the same Jukugo-ruby by 1/2 of the character size of the base text, 
-    following <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
-    Although characters of ruby annotations may overhang characters of surrounding base text by this rule, 
-    at least one character of each ruby annotation shall overhang its base text. 
-    For <a title="ruby block">ruby block</a> at line edge, 
-    <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] is used in most cases. 
-    Alignment between ruby annotation and base text may differ depends on surrounding characters or line edge.</li>
+ <li id="l20211116021">Place each pair of ruby annotation and base text as Mono-ruby, or Jukugo-ruby block as one Group-ruby,
+ depends on the lengths of ruby annotation assigned to each base text in the Jukugo-ruby block.</li>
+ <li id="l20211116022">Place each pair of ruby annotation and base text as Mono-ruby.</li>
+ <li id="l20211116023">Place whole Jukugo-ruby block as one Group-ruby.</li>
+ <li id="l20211116024">For ruby annotations in one Jukugo-ruby, which are wider than their base text, 
+ allow characters of ruby annotation to overhang surrounding kanji within the same Jukugo-ruby by 1/2 of the character size of the base text, 
+ following <a href="#l20211116032">option 2</a> in [[[#overhang-surrounding-characters]]] with following direction as prioritized.
+ Although characters of ruby annotations may overhang characters of surrounding base text by this rule, 
+ at least one character of each ruby annotation shall overhang its base text. 
+ For <a title="ruby block">ruby block</a> at line edge, 
+ <a href="#l20211116042">option 2</a> in [[[#alignment-at-line-edge]]] is used in most cases. 
+ Alignment between ruby annotation and base text may differ depending on surrounding characters or line edges.</li>
 </ol>
 </section>
 
+
 </section>
+
 
 <section>
 <h3 id="overhang-surrounding-characters">Overhanging surrounding characters</h3>
 <p>When the ruby annotation is wider than its base text,
-following three methods are mainly used for overhang surrounding characters.
-In this document, option 1 is picked.</p>
+the following three methods are mainly used for overhanging surrounding characters.
+This document uses the option 1.</p>
 <ol>
-  <li id="l20211116031">Do not overhang surrounding characters, except for punctuation marks containing spacing.</li>
-  <li id="l20211116032">Do not overhang surrounding kanji, 
-    but allow to overhang kana and some punctuation marks by 1/2 of the character size of the base text.</li>
-  <li id="l20211116033">Allow ruby annotation to overhang surrounding characters regardless of the character class, 
-    by 1/4 of the character size of the base text.</li>
+ <li id="l20211116031">Do not overhang surrounding characters, except for punctuation marks containing spacing.</li>
+ <li id="l20211116032">Do not overhang surrounding kanji, 
+ but allow for overhanging kana and some punctuation marks by 1/2 of the character size of the base text.</li>
+ <li id="l20211116033">Allow ruby annotation to overhang surrounding characters regardless of the character class, 
+ by 1/4 of the character size of the base text.</li>
 </ol>
-<p>Although picked option is commonly applied to all of <a title="mono-ruby">mono-ruby</a>, <a title="group-ruby">group-ruby</a> and 
+<p>Although used option is commonly applied to all of <a title="mono-ruby">mono-ruby</a>, <a title="group-ruby">group-ruby</a> and 
 <a title="jukugo-ruby">jukugo-ruby</a>, 
-for when option 2 is picked, 
+for when option 2 is used, 
 there is a method to apply option 1 only in case of all characters of ruby annotation 
 in <a href="https://www.w3.org/TR/jlreq/#cl-26">Katakana (cl-16)</a>.</p>
 </section>
 
+
 <section>
 <h3 id="alignment-at-line-edge">Alignment at line edge</h3>
-<p>When the ruby annotation is wider than its base text, and the ruby block falls at line edge,
-following two methods are mainly used for alignment at line edge.
-In this document, option 1 is picked.
-When option 2 is picked, 
+<p>When the ruby annotation is wider than its base text, and the ruby block falls at the line edge,
+the following two methods are mainly used for alignment at the line edge.
+This document uses the option 1.
+When option 2 is used, 
 alignment between ruby annotation and base text may differ from one described in [[[#alignment-between-ruby-annotation-and-base-text]]].</p>
 <ol>
-  <li id="l20211116041">Align the start of the ruby annotation with the line's start edge,
-    and the end of the ruby annotation with the line's end edge.</li>
-  <li id="l20211116042">Align the start of the base text with the line's start edge,
-    and the end of the base text with the line's end edge.</li>
+ <li id="l20211116041">Align the start of the ruby annotation with the line's start edge,
+ and the end of the ruby annotation with the line's end edge.</li>
+ <li id="l20211116042">Align the start of the base text with the line's start edge,
+ and the end of the base text with the line's end edge.</li>
 </ol>
 </section>
+
 
 </section>
 
